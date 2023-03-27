@@ -1,0 +1,16 @@
+targets:
+  $default:
+    builders:
+      build_pubspec:
+        enabled: true
+
+builders:
+  build_pubspec:
+    import: "package:build_pubspec/build_pubspec.dart"
+    builder_factories: ["buildPubspec"]
+    build_extensions: {"pubspec.yaml": ["lib/generated/pubspec.dart"]}
+    defaults:
+      options:
+        output: "lib/generated/pubspec.dart"
+    build_to: source
+    auto_apply: dependents
