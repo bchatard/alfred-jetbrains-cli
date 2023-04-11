@@ -1,0 +1,190 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:args/command_runner.dart';
+
+import '../exception/not_found_exception.dart';
+import '../logger.dart';
+import 'jetbrains.dart';
+
+class JetBrainsProductConfiguration {
+  static JetBrainsProductsDetails? _config;
+
+  static JetBrainsProductsDetails config() {
+    if (_config == null) {
+      final Map<String, String> env = Platform.environment;
+      final Map<String, dynamic> customConfig =
+          json.decode(env['jb_custom_config'] ?? '{}');
+      logger.i('Custom Config: $customConfig');
+
+      _config = _mergeConfig(customConfig);
+    }
+    return _config!;
+  }
+
+  static JetBrainsProductDetails productConfig(JetBrainsProduct product) {
+    if (config().config.containsKey(product)) {
+      return config()
+          .config
+          .entries
+          .singleWhere((element) => element.key == product)
+          .value;
+    }
+    throw NotFoundException(
+        "Can't find product configuration. This should never happen.");
+  }
+
+  static JetBrainsProductsDetails _mergeConfig(
+      Map<String, dynamic> customConfig) {
+    final Map<String, dynamic> myConfig =
+        JetBrainsProductConfiguration.defaultConfig()
+            .map((defaultKey, defaultValue) {
+      // custom config contain an existing product
+      if (customConfig.containsKey(defaultKey.name)) {
+        final Map<String, dynamic> customConfigValue =
+            customConfig[defaultKey.name];
+        //
+        final Map<String, dynamic> value =
+            defaultValue.toJson().map((detailKey, detailValue) {
+          if (customConfigValue[detailKey] != null) {
+            return MapEntry(detailKey, customConfigValue[detailKey]);
+          }
+          return MapEntry(detailKey, detailValue);
+        });
+        // put override value
+        return MapEntry(defaultKey.name, value);
+      }
+      // keep default value
+      return MapEntry(defaultKey.name, defaultValue.toJson());
+    });
+
+    try {
+      return JetBrainsProductsDetails.fromJson({"config": myConfig});
+    } catch (e) {
+      logger.e(e);
+      throw UsageException('Your configuration is not valid.',
+          'Please check the documentation, and fix your configuration.');
+    }
+  }
+
+  static JetBrainsProductsConfig defaultConfig() {
+    return {
+      JetBrainsProduct.androidStudio: JetBrainsProductDetails(
+        applicationName: 'Android Studio',
+        preferencePrefix: 'AndroidStudio',
+        binaries: [
+          'studio',
+        ],
+      ),
+      JetBrainsProduct.appCode: JetBrainsProductDetails(
+        applicationName: 'AppCode',
+        preferencePrefix: 'AppCode',
+        binaries: [
+          'appcode',
+        ],
+      ),
+      JetBrainsProduct.cLion: JetBrainsProductDetails(
+        applicationName: 'CLion',
+        preferencePrefix: 'CLion',
+        binaries: [
+          'clion',
+        ],
+      ),
+      JetBrainsProduct.dataGrip: JetBrainsProductDetails(
+        applicationName: 'DataGrip',
+        preferencePrefix: 'DataGrip',
+        binaries: [
+          'datagrip',
+        ],
+      ),
+      JetBrainsProduct.fleet: JetBrainsProductDetails(
+        applicationName: 'Fleet',
+        preferencePrefix: 'Fleet',
+        binaries: [
+          'fleet',
+        ],
+      ),
+      // JetBrainsProduct.gateway: JetBrainsProductDetails(
+      //   applicationName: 'Gateway',
+      //   preference: 'JetBrainsGateway',
+      //   binaries: [
+      //     'gateway',
+      //   ],
+      // ),
+      JetBrainsProduct.goLand: JetBrainsProductDetails(
+        applicationName: 'GoLand',
+        preferencePrefix: 'GoLand',
+        binaries: [
+          'goland',
+        ],
+      ),
+      JetBrainsProduct.intelliJIdeaCommunity: JetBrainsProductDetails(
+        applicationName: 'IntelliJ IDEA Community Edition',
+        preferencePrefix: 'IdeaIC',
+        binaries: [
+          'idea',
+          'ideac',
+        ],
+      ),
+      JetBrainsProduct.intelliJIdeaUltimate: JetBrainsProductDetails(
+        applicationName: 'IntelliJ IDEA Ultimate',
+        preferencePrefix: 'IntelliJIdea',
+        binaries: [
+          'idea',
+          'ideau',
+        ],
+      ),
+      JetBrainsProduct.phpStorm: JetBrainsProductDetails(
+        applicationName: 'PhpStorm',
+        preferencePrefix: 'PhpStorm',
+        binaries: [
+          'phpstorm',
+          'pstorm',
+        ],
+      ),
+      JetBrainsProduct.pyCharmProfessional: JetBrainsProductDetails(
+        applicationName: 'PyCharm Professional',
+        preferencePrefix: 'PyCharm',
+        binaries: [
+          'pycharm',
+          'charm',
+          'pycharmp',
+          'charmp',
+        ],
+      ),
+      JetBrainsProduct.pyCharmCommunity: JetBrainsProductDetails(
+        applicationName: 'PyCharm Community',
+        preferencePrefix: 'PyCharmCE',
+        binaries: [
+          'pycharm',
+          'charm',
+          'pycharmc',
+          'charmc',
+        ],
+      ),
+      JetBrainsProduct.rider: JetBrainsProductDetails(
+        applicationName: 'Rider',
+        preferencePrefix: 'Rider',
+        binaries: [
+          'rider',
+        ],
+      ),
+      JetBrainsProduct.rubyMine: JetBrainsProductDetails(
+        applicationName: 'RubyMine',
+        preferencePrefix: 'RubyMine',
+        binaries: [
+          'rubymine',
+          'mine',
+        ],
+      ),
+      JetBrainsProduct.webStorm: JetBrainsProductDetails(
+        applicationName: 'WebStorm',
+        preferencePrefix: 'WebStorm',
+        binaries: [
+          'webstorm',
+          'wstorm',
+        ],
+      ),
+    };
+  }
+}

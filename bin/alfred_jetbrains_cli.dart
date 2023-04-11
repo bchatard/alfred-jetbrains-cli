@@ -1,5 +1,18 @@
-import 'package:alfred_jetbrains_cli/alfred_jetbrains_cli.dart' as alfred_jetbrains_cli;
+import 'dart:io';
 
-void main(List<String> arguments) {
-  print('Hello world: ${alfred_jetbrains_cli.calculate()}!');
+import 'package:alfred_jetbrains_cli/alfred_jetbrains_cli.dart';
+
+Future<void> main(List<String> args) async {
+  await _flushThenExit(await AlfredJetBrainsCli().run(args));
+}
+
+/// Flushes the stdout and stderr streams, then exits the program with the given
+/// status code.
+///
+/// This returns a Future that will never complete, since the program will have
+/// exited already. This is useful to prevent Future chains from proceeding
+/// after you've decided to exit.
+Future<void> _flushThenExit(int status) {
+  return Future.wait<void>([stdout.close(), stderr.close()])
+      .then<void>((_) => exit(status));
 }
