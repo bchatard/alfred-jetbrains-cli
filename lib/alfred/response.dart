@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:path/path.dart';
 
+import '../helper.dart';
 import '../logger.dart';
 import 'alfred.dart';
 

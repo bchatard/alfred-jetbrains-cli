@@ -40,14 +40,4 @@ class JetBrainsProductDetails {
   String toString() {
     return toJson().toString();
   }
-
-// operator [](String key) {
-//   if (key == 'preference') {
-//     return preference;
-//   }
-//   if (key == 'binaries') {
-//     return binaries;
-//   }
-//   return null;
-// }
 }

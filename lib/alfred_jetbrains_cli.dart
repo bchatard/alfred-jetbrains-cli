@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 
 import 'command/command.dart';
 import 'generated/pubspec.dart';
+import 'helper.dart';
 import 'logger.dart';
 
 class AlfredJetBrainsCli extends CommandRunner<int> {
@@ -16,10 +17,7 @@ class AlfredJetBrainsCli extends CommandRunner<int> {
         negatable: false,
         help: 'Display the current version.',
       )
-      ..addFlag(
-        'verbose',
-        help: 'Noisy logging, including all shell commands executed.',
-      );
+      ..addSeparator('Add `alfred_debug=1` to log to file');
     addCommand(SearchCommand());
     addCommand(ConfigurationCommand());
   }
@@ -31,7 +29,7 @@ class AlfredJetBrainsCli extends CommandRunner<int> {
   Future<int> run(Iterable<String> args) async {
     try {
       final topLevelResults = parse(args);
-      if (topLevelResults['verbose'] == true || debugMode) {
+      if (debugMode) {
         Logger.level = Level.debug;
       }
       return await runCommand(topLevelResults) ?? ExitCode.success.code;

@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:collection/collection.dart';
 import 'package:path/path.dart';
 
-import '../exception/not_found_exception.dart';
+import '../exception/not_found.dart';
+import '../helper.dart';
 import 'jetbrains.dart';
 
 class JetBrainsProductLocator {
@@ -31,7 +32,7 @@ class JetBrainsProductLocator {
         JetBrainsProductConfiguration.productConfig(product);
     final List<String> binaries = productConfig.binaries;
     for (var path in paths) {
-      final FileSystemEntity? bin = Directory(_parsePath(path))
+      final FileSystemEntity? bin = Directory(parsePath(path))
           .listSync()
           .singleWhereOrNull(
               (file) => binaries.contains(basename(file.absolute.path)));
@@ -56,7 +57,7 @@ class JetBrainsProductLocator {
     final JetBrainsProductDetails productConfig =
         JetBrainsProductConfiguration.productConfig(product);
     for (var path in paths) {
-      final FileSystemEntity? app = Directory(_parsePath(path))
+      final FileSystemEntity? app = Directory(parsePath(path))
           .listSync()
           .singleWhereOrNull((file) =>
               basenameWithoutExtension(file.absolute.path) ==
@@ -69,12 +70,5 @@ class JetBrainsProductLocator {
     }
 
     throw NotFoundException("Can't locate application for ${product.name}");
-  }
-
-  String _parsePath(String path) {
-    if (path.contains('~')) {
-      return path.replaceAll('~', Platform.environment['HOME']!);
-    }
-    return path;
   }
 }

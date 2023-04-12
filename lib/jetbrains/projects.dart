@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:path/path.dart';
 
-import '../exception/not_found_exception.dart';
+import '../exception/not_found.dart';
+import '../helper.dart';
 import '../logger.dart';
 import 'jetbrains.dart';
 
@@ -10,9 +11,9 @@ class JetBrainsProjects {
   final JetBrainsProduct product;
 
   static final List<String> _settingsPath = [
-    'Library/Application Support/Google',
-    'Library/Application Support/JetBrains',
-    'Library/Preferences',
+    '~/Library/Application Support/Google',
+    '~/Library/Application Support/JetBrains',
+    '~/Library/Preferences',
   ];
 
   JetBrainsProjects(this.product);
@@ -26,10 +27,9 @@ class JetBrainsProjects {
   FileSystemEntity locateSettingsDirectory() {
     final productName = product.name.toJbName();
     final productConfig = JetBrainsProductConfiguration.productConfig(product);
-    final Map<String, String> env = Platform.environment;
 
     for (var path in _getSettingsPath()) {
-      final Directory appSupport = Directory(join(env['HOME']!, path));
+      final Directory appSupport = Directory(parsePath(path));
       if (!appSupport.existsSync()) {
         throw FileSystemException(
           "Settings path doesn't exists",

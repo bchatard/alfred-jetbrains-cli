@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:args/command_runner.dart';
 
-import '../exception/not_found_exception.dart';
+import '../exception/not_found.dart';
 import '../logger.dart';
 import 'jetbrains.dart';
 

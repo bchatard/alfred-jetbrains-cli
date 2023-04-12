@@ -5,10 +5,9 @@ import 'package:logger/logger.dart';
 import 'package:path/path.dart';
 
 import '../generated/pubspec.dart';
+import 'helper.dart';
 
 final loggerOutput = _FileOutput();
-final bool debugMode = _debugMode();
-final bool alfredMode = _alfredMode();
 
 final Logger logger = Logger(
   filter: _AlfredFilter(),
@@ -19,7 +18,10 @@ final Logger logger = Logger(
     noBoxingByDefault: true,
     methodCount: 0,
   ),
-  output: MultiOutput([loggerOutput, if (!alfredMode) ConsoleOutput()]),
+  output: MultiOutput([
+    loggerOutput,
+    if (!alfredMode) ConsoleOutput(),
+  ]),
   level: Level.info,
 );
 
@@ -31,10 +33,14 @@ class _FileOutput extends LogOutput {
   File _getOutputFile() {
     final DateTime now = DateTime.now();
     final String date = now.toIso8601String().split('T').first;
-    return File(join(
-      Directory.systemTemp.absolute.path,
-      '${packageName}_$date.log',
-    ));
+    return File(
+      debugMode
+          ? join(
+              Directory.systemTemp.absolute.path,
+              '${packageName}_$date.log',
+            )
+          : '/dev/null',
+    );
   }
 
   @override
@@ -61,19 +67,9 @@ class _FileOutput extends LogOutput {
 class _AlfredFilter extends LogFilter {
   @override
   bool shouldLog(LogEvent event) {
-    if (!debugMode) {
+    if (alfredMode && !debugMode) {
       return false;
     }
     return event.level.index >= level!.index;
   }
-}
-
-bool _debugMode() {
-  final Map<String, String> env = Platform.environment;
-  return env.containsKey('alfred_debug');
-}
-
-bool _alfredMode() {
-  final Map<String, String> env = Platform.environment;
-  return env.containsKey('alfred_version');
 }
