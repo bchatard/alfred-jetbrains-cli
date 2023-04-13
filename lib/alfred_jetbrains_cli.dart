@@ -17,7 +17,9 @@ class AlfredJetBrainsCli extends CommandRunner<int> {
         negatable: false,
         help: 'Display the current version.',
       )
-      ..addSeparator('Add `alfred_debug=1` to log to file');
+      ..addSeparator('Add `alfred_debug=1` will log to file');
+
+    addCommand(InstallCommand());
     addCommand(SearchCommand());
     addCommand(ConfigurationCommand());
   }

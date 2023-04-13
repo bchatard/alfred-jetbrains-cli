@@ -1,5 +1,7 @@
 import 'dart:io';
 
+const workflowName = '@bchatard-alfred-jetbrains-next';
+
 final bool debugMode = _debugMode();
 final bool alfredMode = _alfredMode();
 
