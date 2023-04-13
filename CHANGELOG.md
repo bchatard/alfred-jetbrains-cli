@@ -16,3 +16,7 @@
 ## 0.0.4
 
 - fix unhandled exceptions in search command
+
+## 0.0.5
+
+- add Fleet support

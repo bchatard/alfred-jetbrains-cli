@@ -56,4 +56,18 @@ class JetBrainsProjectsExtractor {
 
     return [];
   }
+
+  static Iterable<String> trustedPathsExtractor(
+    File xmlFile,
+  ) {
+    final xmlDocument = XmlDocument.parse(xmlFile.readAsStringSync());
+
+    final Iterable<XmlNode> keys = xmlDocument
+        .xpath("//option[@name='TRUSTED_PROJECT_PATHS']/map/entry/@key");
+    if (keys.isNotEmpty) {
+      return _replaceHome(keys);
+    }
+
+    return [];
+  }
 }

@@ -23,7 +23,7 @@ bool _alfredMode() {
 }
 
 const String _iconBasePath =
-    '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/';
+    '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources';
 const String iconError = '$_iconBasePath/AlertStopIcon.icns';
 const String iconDebug = '$_iconBasePath/ProblemReport.icns';
 const String iconClock = '$_iconBasePath/Clock.icns';

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:glob/glob.dart';
+import 'package:glob/list_local_fs.dart';
 import 'package:path/path.dart';
 
 import '../exception/not_found.dart';
@@ -40,7 +42,7 @@ class JetBrainsProjects {
       logger.i(
           "Application Support: ${appSupport.absolute.path}/${productConfig.preferencePrefix}");
       final r =
-          RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)");
+          RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)?");
       List<FileSystemEntity> availablePaths = appSupport
           .listSync(recursive: false, followLinks: true)
           .where((FileSystemEntity event) =>
@@ -92,6 +94,22 @@ class JetBrainsProjects {
           recentSolutions);
     }
 
+    if (product == JetBrainsProduct.fleet) {
+      return _retrieveFleetProjects(settingsPath);
+    }
+
     return [];
+  }
+
+  Iterable<String> _retrieveFleetProjects(FileSystemEntity settingsPath) {
+    final List<FileSystemEntity> files =
+        Glob(join(settingsPath.absolute.path, 'backend/**/trusted-paths.xml'))
+            .listSync();
+    final List<String> paths = [];
+    for (var file in files) {
+      paths.addAll(JetBrainsProjectsExtractor.trustedPathsExtractor(
+          File(file.absolute.path)));
+    }
+    return paths;
   }
 }
