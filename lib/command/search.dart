@@ -4,6 +4,8 @@ import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
 
 import '../alfred/alfred.dart';
+import '../exception/not_found.dart';
+import '../helper.dart';
 import '../jetbrains/jetbrains.dart';
 import '../logger.dart';
 
@@ -42,37 +44,54 @@ class SearchCommand extends Command<int> {
     String filter = argResults!['filter'] ?? '';
     filter = filter.toLowerCase();
     final response = AlfredResponse();
-
     logger.i(
         "Search project for ${product.name.toJbName()} with filter '$filter'");
 
-    final jbProduct = JetBrainsProductLocator(product);
-    final jbProjects = JetBrainsProjects(product);
+    Iterable<ResultItem> items = <ResultItem>[];
 
-    final Iterable<String> projects = jbProjects.retrieveRecentProjects();
+    try {
+      final jbProduct = JetBrainsProductLocator(product);
+      final jbProjects = JetBrainsProjects(product);
 
-    Iterable<ResultItem> items = projects.map((projectPath) {
-      final JetBrainsProjectName project = JetBrainsProjectName(projectPath);
+      final Iterable<String> projects = jbProjects.retrieveRecentProjects();
 
-      return ResultItemBuilder(
-        name: project.name,
-        path: projectPath,
-        iconPath: jbProduct.locateApplication().absolute.path,
-        binPath: jbProduct.locateBin().absolute.path,
-      ).build();
-    });
+      items = projects.map((projectPath) {
+        final JetBrainsProjectName project = JetBrainsProjectName(projectPath);
 
-    if (filter.isNotEmpty) {
-      items = items.where((ResultItem item) {
-        if (item.title.toLowerCase().contains(filter) ||
-            (item.variables != null &&
-                item.variables!.jbSearchBasename
-                    .toLowerCase()
-                    .contains(filter))) {
-          return true;
-        }
-        return false;
+        return ResultItemBuilder(
+          name: project.name,
+          path: projectPath,
+          iconPath: jbProduct.locateApplication().absolute.path,
+          binPath: jbProduct.locateBin().absolute.path,
+        ).build();
       });
+
+      if (filter.isNotEmpty) {
+        items = items.where((ResultItem item) {
+          if (item.title.toLowerCase().contains(filter) ||
+              (item.variables != null &&
+                  item.variables!.jbSearchBasename
+                      .toLowerCase()
+                      .contains(filter))) {
+            return true;
+          }
+          return false;
+        });
+      }
+    } on NotFoundException catch (e) {
+      final notFound = ResultItemBuilder(
+        name: e.message,
+        path: e.troubleshoot ?? e.message,
+        iconPath: iconError,
+      ).build();
+      items = [notFound];
+    } catch (e) {
+      final globalException = ResultItemBuilder(
+        name: e.toString(),
+        path: e.toString(),
+        iconPath: iconBod,
+      ).build();
+      items = [globalException];
     }
 
     response.render(items.toList());

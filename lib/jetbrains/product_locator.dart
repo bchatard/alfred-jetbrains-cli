@@ -43,7 +43,10 @@ class JetBrainsProductLocator {
       }
     }
 
-    throw NotFoundException("Can't locate bin for ${product.name}");
+    throw NotFoundException(
+      message: "Can't locate bin for ${product.name}",
+      troubleshoot: "Please check if binaries ($binaries) exists in $paths",
+    );
   }
 
   FileSystemEntity locateApplication() {
@@ -69,6 +72,10 @@ class JetBrainsProductLocator {
       }
     }
 
-    throw NotFoundException("Can't locate application for ${product.name}");
+    throw NotFoundException(
+      message: "Can't locate application for ${product.name}",
+      troubleshoot:
+          "Please check if application '${productConfig.applicationName}' exists in $paths",
+    );
   }
 }

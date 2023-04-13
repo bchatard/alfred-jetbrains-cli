@@ -1,6 +1,6 @@
 import 'dart:io';
 
-const workflowName = '@bchatard-alfred-jetbrains-next';
+const String workflowName = '@bchatard-alfred-jetbrains-next';
 
 final bool debugMode = _debugMode();
 final bool alfredMode = _alfredMode();
@@ -21,3 +21,11 @@ bool _alfredMode() {
   final Map<String, String> env = Platform.environment;
   return env.containsKey('alfred_version');
 }
+
+const String _iconBasePath =
+    '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/';
+const String iconError = '$_iconBasePath/AlertStopIcon.icns';
+const String iconDebug = '$_iconBasePath/ProblemReport.icns';
+const String iconClock = '$_iconBasePath/Clock.icns';
+const String iconNuclear = '$_iconBasePath/BurningIcon.icns';
+const String iconBod = '$_iconBasePath/public.generic-pc.icns';

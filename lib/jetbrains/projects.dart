@@ -27,8 +27,8 @@ class JetBrainsProjects {
   FileSystemEntity locateSettingsDirectory() {
     final productName = product.name.toJbName();
     final productConfig = JetBrainsProductConfiguration.productConfig(product);
-
-    for (var path in _getSettingsPath()) {
+    final paths = _getSettingsPath();
+    for (var path in paths) {
       final Directory appSupport = Directory(parsePath(path));
       if (!appSupport.existsSync()) {
         throw FileSystemException(
@@ -60,7 +60,11 @@ class JetBrainsProjects {
         return availablePaths.first;
       }
     }
-    throw NotFoundException("Can't find settings path for $productName");
+    throw NotFoundException(
+      message: "Can't find settings path for $productName",
+      troubleshoot:
+          "Please check if preferences '${productConfig.preferencePrefix}' exists in $paths",
+    );
   }
 
   Iterable<String> retrieveRecentProjects() {

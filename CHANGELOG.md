@@ -12,3 +12,7 @@
 ## 0.0.3
 
 - install command: install the workflow
+
+## 0.0.4
+
+- fix unhandled exceptions in search command

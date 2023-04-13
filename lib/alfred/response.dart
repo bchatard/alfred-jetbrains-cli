@@ -29,8 +29,7 @@ class AlfredResponse {
       final debug = ResultItemBuilder(
         name: 'Debug: Log ${basename(loggerOutput.file.absolute.path)}',
         path: loggerOutput.file.absolute.path,
-        iconPath:
-            '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ProblemReport.icns',
+        iconPath: iconDebug,
       ).build();
 
       items.add(debug);
@@ -42,8 +41,7 @@ class AlfredResponse {
         name: 'Debug: Took ${diff.inMilliseconds}ms',
         path:
             'Started at: ${_start.toIso8601String()} || Ended at: ${stop.toIso8601String()}',
-        iconPath:
-            '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/Clock.icns',
+        iconPath: iconClock,
       ).build();
       items.add(timer);
     }

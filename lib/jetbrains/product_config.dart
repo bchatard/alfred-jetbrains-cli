@@ -31,7 +31,8 @@ class JetBrainsProductConfiguration {
           .value;
     }
     throw NotFoundException(
-        "Can't find product configuration. This should never happen.");
+      message: "Can't find product configuration. This should never happen.",
+    );
   }
 
   static JetBrainsProductsDetails _mergeConfig(

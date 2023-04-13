@@ -1,5 +1,6 @@
 class NotFoundException implements Exception {
   final String message;
+  final String? troubleshoot;
 
-  NotFoundException(this.message);
+  NotFoundException({required this.message, this.troubleshoot});
 }
