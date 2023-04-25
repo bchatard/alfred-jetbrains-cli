@@ -24,6 +24,7 @@ bool _alfredMode() {
 
 const String _iconBasePath =
     '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources';
+const String iconNote = '$_iconBasePath/AlertNoteIcon.icns';
 const String iconError = '$_iconBasePath/AlertStopIcon.icns';
 const String iconDebug = '$_iconBasePath/ProblemReport.icns';
 const String iconClock = '$_iconBasePath/Clock.icns';

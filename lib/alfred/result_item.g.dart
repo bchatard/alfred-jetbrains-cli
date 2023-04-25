@@ -81,6 +81,7 @@ ResultItemVariables _$ResultItemVariablesFromJson(Map<String, dynamic> json) =>
       jbProjectName: json['jb_project_name'] as String,
       jbBin: json['jb_bin'] as String,
       jbSearchBasename: json['jb_search_basename'] as String,
+      jbIsNewBin: json['jb_is_new_bin'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$ResultItemVariablesToJson(
@@ -89,4 +90,5 @@ Map<String, dynamic> _$ResultItemVariablesToJson(
       'jb_project_name': instance.jbProjectName,
       'jb_bin': instance.jbBin,
       'jb_search_basename': instance.jbSearchBasename,
+      'jb_is_new_bin': instance.jbIsNewBin,
     };

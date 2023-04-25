@@ -27,6 +27,7 @@ class ResultItemBuilder {
         jbProjectName: name,
         jbBin: binPath!,
         jbSearchBasename: basePath,
+        jbIsNewBin: binPath!.contains('MacOS'),
       );
     }
 
@@ -121,11 +122,14 @@ class ResultItemVariables {
   String jbBin;
   @JsonKey(name: 'jb_search_basename')
   String jbSearchBasename;
+  @JsonKey(name: 'jb_is_new_bin', defaultValue: false)
+  bool jbIsNewBin = false;
 
   ResultItemVariables({
     required this.jbProjectName,
     required this.jbBin,
     required this.jbSearchBasename,
+    required this.jbIsNewBin,
   });
 
   factory ResultItemVariables.fromJson(Map<String, dynamic> json) =>

@@ -78,6 +78,9 @@ class SearchCommand extends Command<int> {
           return false;
         });
       }
+      // call to toList() will throw exception
+      // (if some are thrown in previous map)
+      items = items.toList();
     } on NotFoundException catch (e) {
       final notFound = ResultItemBuilder(
         name: e.message,

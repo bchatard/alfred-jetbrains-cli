@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:path/path.dart';
 
+import '../generated/pubspec.dart';
 import '../helper.dart';
 import '../logger.dart';
 import 'alfred.dart';
@@ -26,6 +27,14 @@ class AlfredResponse {
 
   void _addDebug(List<ResultItem> items) {
     if (debugMode) {
+      final version = ResultItemBuilder(
+        name: 'Debug: CLI version $packageVersion',
+        path: packageVersion,
+        iconPath: iconNote,
+      ).build();
+
+      items.add(version);
+
       final debug = ResultItemBuilder(
         name: 'Debug: Log ${basename(loggerOutput.file.absolute.path)}',
         path: loggerOutput.file.absolute.path,

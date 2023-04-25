@@ -329,14 +329,13 @@ packages:
     source: hosted
     version: "1.8.3"
   petitparser:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "0b0e60a5a19f2c9c556486228bb90511c49392e0"
-      url: "https://github.com/petitparser/dart-petitparser.git"
-    source: git
-    version: "6.0.0"
+      name: petitparser
+      sha256: cb3798bef7fc021ac45b308f4b51208a152792445cce0448c9a4ba5879dd8750
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.0"
   pool:
     dependency: transitive
     description:
@@ -548,12 +547,11 @@ packages:
   xml:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: ece414fca71c60c472e72edb9613a5e3e483a172
-      url: "https://github.com/renggli/dart-xml.git"
-    source: git
-    version: "7.0.0"
+      name: xml
+      sha256: "5bc72e1e45e941d825fd7468b9b4cc3b9327942649aeb6fc5cdbf135f0a86e84"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.3.0"
   yaml:
     dependency: transitive
     description:

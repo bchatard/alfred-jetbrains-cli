@@ -154,7 +154,7 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.pyCharmCommunity: JetBrainsProductDetails(
-        applicationName: 'PyCharm Community',
+        applicationName: 'PyCharm CE',
         preferencePrefix: 'PyCharmCE',
         binaries: [
           'pycharm',

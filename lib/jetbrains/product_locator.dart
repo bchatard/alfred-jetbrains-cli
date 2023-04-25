@@ -31,11 +31,17 @@ class JetBrainsProductLocator {
     final JetBrainsProductDetails productConfig =
         JetBrainsProductConfiguration.productConfig(product);
     final List<String> binaries = productConfig.binaries;
+
+    // since 2023, bin script are no more generated for dmg installation
+    paths.add(join(locateApplication().absolute.path, 'Contents', 'MacOS'));
+
     for (var path in paths) {
-      final FileSystemEntity? bin = Directory(parsePath(path))
-          .listSync()
-          .singleWhereOrNull(
-              (file) => binaries.contains(basename(file.absolute.path)));
+      final binPath = Directory(parsePath(path));
+      if (!binPath.existsSync()) {
+        continue;
+      }
+      final FileSystemEntity? bin = binPath.listSync().singleWhereOrNull(
+          (file) => binaries.contains(basename(file.absolute.path)));
 
       if (bin != null) {
         _bin = bin;
@@ -60,9 +66,12 @@ class JetBrainsProductLocator {
     final JetBrainsProductDetails productConfig =
         JetBrainsProductConfiguration.productConfig(product);
     for (var path in paths) {
-      final FileSystemEntity? app = Directory(parsePath(path))
-          .listSync()
-          .singleWhereOrNull((file) =>
+      final appPath = Directory(parsePath(path));
+      if (!appPath.existsSync()) {
+        continue;
+      }
+      final FileSystemEntity? app = appPath.listSync().singleWhereOrNull(
+          (file) =>
               basenameWithoutExtension(file.absolute.path) ==
               productConfig.applicationName);
 

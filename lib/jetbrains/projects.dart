@@ -41,19 +41,22 @@ class JetBrainsProjects {
 
       logger.i(
           "Application Support: ${appSupport.absolute.path}/${productConfig.preferencePrefix}");
-      final r =
-          RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)?");
+      // Fleet preferences directory doesn't contains version
+      // maybe this will change with stable release
+      final prefPattern = (product == JetBrainsProduct.fleet)
+          ? RegExp(productConfig.preferencePrefix)
+          : RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)");
       List<FileSystemEntity> availablePaths = appSupport
           .listSync(recursive: false, followLinks: true)
           .where((FileSystemEntity event) =>
               FileSystemEntity.isDirectorySync(event.absolute.path) &&
-              r.hasMatch(basename(event.absolute.path)))
+              prefPattern.hasMatch(basename(event.absolute.path)))
           .toList()
         ..sort((FileSystemEntity a, FileSystemEntity b) {
           final String aVersion =
-              r.allMatches(a.path).first.group(1).toString();
+              prefPattern.allMatches(a.path).first.group(1).toString();
           final String bVersion =
-              r.allMatches(b.path).first.group(1).toString();
+              prefPattern.allMatches(b.path).first.group(1).toString();
           return bVersion.compareTo(aVersion);
         });
 

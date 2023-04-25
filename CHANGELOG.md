@@ -2,7 +2,6 @@
 
 - Create from `dart create --template console alfred-jetbrains-cli`.
 
-
 ## 0.0.2
 
 - First release with:
@@ -20,3 +19,9 @@
 ## 0.0.5
 
 - add Fleet support
+
+## 0.0.6
+
+- fix Fleet support
+- fix PyCharm Community configuration
+- support 2023 version
