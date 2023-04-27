@@ -21,6 +21,8 @@ class InstallCommand extends Command<int> {
     final pref = _locatePrefDirectory();
     // access workflows directory
     final workflows = Directory(join(pref.absolute.path, 'workflows'));
+    // create folder if it doesn't exists (can happen on fresh install)
+    workflows.createSync();
     // prepare symbolic link
     final destWorkflow = Link(join(workflows.absolute.path, workflowName));
 

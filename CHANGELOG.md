@@ -29,3 +29,6 @@
 ## 0.0.7
 
 - start to implement "file action"
+
+## 0.0.8
+- fix install command on in newly installed Alfred
