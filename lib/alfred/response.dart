@@ -14,7 +14,7 @@ class AlfredResponse {
     _start = DateTime.now();
   }
 
-  void render(List<ResultItem> items) {
+  void renderItems(List<ResultItem> items) {
     _addDebug(items);
 
     final Map<String, dynamic> response = {
@@ -23,6 +23,11 @@ class AlfredResponse {
 
     final encoder = debugMode ? JsonEncoder.withIndent('  ') : JsonEncoder();
     print(encoder.convert(response));
+  }
+
+  void renderItem(ResultItem item) {
+    final encoder = debugMode ? JsonEncoder.withIndent('  ') : JsonEncoder();
+    print(encoder.convert(item));
   }
 
   void _addDebug(List<ResultItem> items) {

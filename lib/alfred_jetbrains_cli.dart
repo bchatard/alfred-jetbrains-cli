@@ -21,6 +21,7 @@ class AlfredJetBrainsCli extends CommandRunner<int> {
 
     addCommand(InstallCommand());
     addCommand(SearchCommand());
+    addCommand(OpenProjectCommand());
     addCommand(ConfigurationCommand());
   }
 

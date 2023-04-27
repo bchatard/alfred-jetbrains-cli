@@ -97,7 +97,7 @@ class SearchCommand extends Command<int> {
       items = [globalException];
     }
 
-    response.render(items.toList());
+    response.renderItems(items.toList());
 
     return ExitCode.success.code;
   }

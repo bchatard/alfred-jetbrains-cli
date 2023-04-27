@@ -25,3 +25,7 @@
 - fix Fleet support
 - fix PyCharm Community configuration
 - support 2023 version
+
+## 0.0.7
+
+- start to implement "file action"
