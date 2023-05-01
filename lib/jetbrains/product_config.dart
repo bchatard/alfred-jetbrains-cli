@@ -84,6 +84,13 @@ class JetBrainsProductConfiguration {
           'appcode',
         ],
       ),
+      JetBrainsProduct.aqua: JetBrainsProductDetails(
+        applicationName: 'Aqua',
+        preferencePrefix: 'Aqua',
+        binaries: [
+          'aqua',
+        ],
+      ),
       JetBrainsProduct.cLion: JetBrainsProductDetails(
         applicationName: 'CLion',
         preferencePrefix: 'CLion',

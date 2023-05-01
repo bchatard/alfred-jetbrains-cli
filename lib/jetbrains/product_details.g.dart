@@ -25,6 +25,7 @@ Map<String, dynamic> _$JetBrainsProductsDetailsToJson(
 const _$JetBrainsProductEnumMap = {
   JetBrainsProduct.androidStudio: 'androidStudio',
   JetBrainsProduct.appCode: 'appCode',
+  JetBrainsProduct.aqua: 'aqua',
   JetBrainsProduct.cLion: 'cLion',
   JetBrainsProduct.dataGrip: 'dataGrip',
   JetBrainsProduct.fleet: 'fleet',

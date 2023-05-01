@@ -62,9 +62,14 @@ class JetBrainsProjectName {
     ];
 
     for (var xpath in xpathSelectors) {
-      final Iterable<XmlNode> names = xmlDocument.xpath(xpath);
-      if (names.isNotEmpty) {
-        return names.first.value.toString();
+      try {
+        final Iterable<XmlNode> names = xmlDocument.xpath(xpath);
+        if (names.isNotEmpty) {
+          return names.first.value.toString();
+        }
+      } catch (e) {
+        // die silently
+        // skip this xpath
       }
     }
 

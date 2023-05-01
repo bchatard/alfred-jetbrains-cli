@@ -1,6 +1,7 @@
 enum JetBrainsProduct {
   androidStudio,
   appCode,
+  aqua,
   cLion,
   dataGrip,
   fleet,
