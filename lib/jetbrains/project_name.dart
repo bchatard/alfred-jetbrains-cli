@@ -54,6 +54,10 @@ class JetBrainsProjectName {
   }
 
   String? _fromWorkspace(File xmlFile) {
+    if (!xmlFile.existsSync()) {
+      return null;
+    }
+
     final xmlDocument = XmlDocument.parse(xmlFile.readAsStringSync());
     final List<String> xpathSelectors = [
       "(//component[@name='ProjectView']/panes/pane[@id='ProjectPane']/subPane/PATH/PATH_ELEMENT/option/@value)[1]",

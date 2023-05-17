@@ -38,3 +38,7 @@
 
 - add Aqua support
 - fix xpath issue
+
+## 0.0.10
+
+- fix issue if project dir is removed
