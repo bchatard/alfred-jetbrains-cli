@@ -42,3 +42,8 @@
 ## 0.0.10
 
 - fix issue if project dir is removed
+
+## 0.0.11
+
+- bump to Dart 3
+- bump dependencies
