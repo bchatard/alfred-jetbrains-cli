@@ -45,7 +45,7 @@ class SearchCommand extends Command<int> {
     filter = filter.toLowerCase();
     final response = AlfredResponse();
     logger.i(
-        "Search project for ${product.name.toJbName()} with filter '$filter'");
+        "Search projects for ${product.name.toJbName()} with filter '$filter'");
 
     Iterable<ResultItem> items = <ResultItem>[];
 

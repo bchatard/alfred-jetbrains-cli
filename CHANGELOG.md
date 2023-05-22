@@ -52,3 +52,7 @@
 
 - ability to define multiple application name, since there differences between .dmg and toolbox app name
 - add DataSpell support
+
+## 0.0.13
+
+- all command: search projects for all products
