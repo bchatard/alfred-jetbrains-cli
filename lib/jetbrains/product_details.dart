@@ -21,12 +21,12 @@ class JetBrainsProductsDetails {
 
 @JsonSerializable()
 class JetBrainsProductDetails {
-  String applicationName;
+  List<String> applicationNames;
   String preferencePrefix;
   List<String> binaries;
 
   JetBrainsProductDetails({
-    required this.applicationName,
+    required this.applicationNames,
     required this.preferencePrefix,
     required this.binaries,
   });

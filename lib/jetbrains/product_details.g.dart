@@ -28,6 +28,7 @@ const _$JetBrainsProductEnumMap = {
   JetBrainsProduct.aqua: 'aqua',
   JetBrainsProduct.cLion: 'cLion',
   JetBrainsProduct.dataGrip: 'dataGrip',
+  JetBrainsProduct.dataSpell: 'dataSpell',
   JetBrainsProduct.fleet: 'fleet',
   JetBrainsProduct.goLand: 'goLand',
   JetBrainsProduct.intelliJIdeaCommunity: 'intelliJIdeaCommunity',
@@ -43,7 +44,9 @@ const _$JetBrainsProductEnumMap = {
 JetBrainsProductDetails _$JetBrainsProductDetailsFromJson(
         Map<String, dynamic> json) =>
     JetBrainsProductDetails(
-      applicationName: json['applicationName'] as String,
+      applicationNames: (json['applicationNames'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       preferencePrefix: json['preferencePrefix'] as String,
       binaries:
           (json['binaries'] as List<dynamic>).map((e) => e as String).toList(),
@@ -52,7 +55,7 @@ JetBrainsProductDetails _$JetBrainsProductDetailsFromJson(
 Map<String, dynamic> _$JetBrainsProductDetailsToJson(
         JetBrainsProductDetails instance) =>
     <String, dynamic>{
-      'applicationName': instance.applicationName,
+      'applicationNames': instance.applicationNames,
       'preferencePrefix': instance.preferencePrefix,
       'binaries': instance.binaries,
     };

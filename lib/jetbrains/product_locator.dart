@@ -70,10 +70,13 @@ class JetBrainsProductLocator {
       if (!appPath.existsSync()) {
         continue;
       }
-      final FileSystemEntity? app = appPath.listSync().singleWhereOrNull(
-          (file) =>
-              basenameWithoutExtension(file.absolute.path) ==
-              productConfig.applicationName);
+      final FileSystemEntity? app =
+          appPath.listSync().singleWhereOrNull((file) {
+        String basePath = basenameWithoutExtension(file.absolute.path);
+        return productConfig.applicationNames
+                .singleWhereOrNull((appName) => appName == basePath) !=
+            null;
+      });
 
       if (app != null) {
         _application = app;
@@ -84,7 +87,7 @@ class JetBrainsProductLocator {
     throw NotFoundException(
       message: "Can't locate application for ${product.name}",
       troubleshoot:
-          "Please check if application '${productConfig.applicationName}' exists in $paths",
+          "Please check if application '${productConfig.applicationNames}' exists in $paths",
     );
   }
 }

@@ -71,63 +71,91 @@ class JetBrainsProductConfiguration {
   static JetBrainsProductsConfig defaultConfig() {
     return {
       JetBrainsProduct.androidStudio: JetBrainsProductDetails(
-        applicationName: 'Android Studio',
+        applicationNames: [
+          'Android Studio',
+        ],
         preferencePrefix: 'AndroidStudio',
         binaries: [
           'studio',
         ],
       ),
       JetBrainsProduct.appCode: JetBrainsProductDetails(
-        applicationName: 'AppCode',
+        applicationNames: [
+          'AppCode',
+        ],
         preferencePrefix: 'AppCode',
         binaries: [
           'appcode',
         ],
       ),
       JetBrainsProduct.aqua: JetBrainsProductDetails(
-        applicationName: 'Aqua',
+        applicationNames: [
+          'Aqua',
+        ],
         preferencePrefix: 'Aqua',
         binaries: [
           'aqua',
         ],
       ),
       JetBrainsProduct.cLion: JetBrainsProductDetails(
-        applicationName: 'CLion',
+        applicationNames: [
+          'CLion',
+        ],
         preferencePrefix: 'CLion',
         binaries: [
           'clion',
         ],
       ),
       JetBrainsProduct.dataGrip: JetBrainsProductDetails(
-        applicationName: 'DataGrip',
+        applicationNames: [
+          'DataGrip',
+        ],
         preferencePrefix: 'DataGrip',
         binaries: [
           'datagrip',
         ],
       ),
+      JetBrainsProduct.dataSpell: JetBrainsProductDetails(
+        applicationNames: [
+          'DataSpell',
+        ],
+        preferencePrefix: 'DataSpell',
+        binaries: [
+          'dataspell',
+        ],
+      ),
       JetBrainsProduct.fleet: JetBrainsProductDetails(
-        applicationName: 'Fleet',
+        applicationNames: [
+          'Fleet',
+        ],
         preferencePrefix: 'Fleet',
         binaries: [
           'fleet',
         ],
       ),
       // JetBrainsProduct.gateway: JetBrainsProductDetails(
-      //   applicationName: 'Gateway',
-      //   preference: 'JetBrainsGateway',
+      //   applicationNames: [
+      //     'Gateway',
+      //   ],
+      //   preferencePrefix: 'JetBrainsGateway',
       //   binaries: [
       //     'gateway',
       //   ],
       // ),
       JetBrainsProduct.goLand: JetBrainsProductDetails(
-        applicationName: 'GoLand',
+        applicationNames: [
+          'GoLand',
+        ],
         preferencePrefix: 'GoLand',
         binaries: [
           'goland',
         ],
       ),
       JetBrainsProduct.intelliJIdeaCommunity: JetBrainsProductDetails(
-        applicationName: 'IntelliJ IDEA Community Edition',
+        applicationNames: [
+          'IntelliJ IDEA CE',
+          'IntelliJ IDEA Community Edition',
+        ],
         preferencePrefix: 'IdeaIC',
         binaries: [
           'idea',
@@ -135,7 +163,10 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.intelliJIdeaUltimate: JetBrainsProductDetails(
-        applicationName: 'IntelliJ IDEA Ultimate',
+        applicationNames: [
+          'IntelliJ IDEA',
+          'IntelliJ IDEA Ultimate',
+        ],
         preferencePrefix: 'IntelliJIdea',
         binaries: [
           'idea',
@@ -143,7 +174,9 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.phpStorm: JetBrainsProductDetails(
-        applicationName: 'PhpStorm',
+        applicationNames: [
+          'PhpStorm',
+        ],
         preferencePrefix: 'PhpStorm',
         binaries: [
           'phpstorm',
@@ -151,7 +184,10 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.pyCharmProfessional: JetBrainsProductDetails(
-        applicationName: 'PyCharm Professional',
+        applicationNames: [
+          'PyCharm',
+          'PyCharm Professional',
+        ],
         preferencePrefix: 'PyCharm',
         binaries: [
           'pycharm',
@@ -161,7 +197,10 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.pyCharmCommunity: JetBrainsProductDetails(
-        applicationName: 'PyCharm CE',
+        applicationNames: [
+          'PyCharm CE',
+          'PyCharm Community',
+        ],
         preferencePrefix: 'PyCharmCE',
         binaries: [
           'pycharm',
@@ -171,14 +210,18 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.rider: JetBrainsProductDetails(
-        applicationName: 'Rider',
+        applicationNames: [
+          'Rider',
+        ],
         preferencePrefix: 'Rider',
         binaries: [
           'rider',
         ],
       ),
       JetBrainsProduct.rubyMine: JetBrainsProductDetails(
-        applicationName: 'RubyMine',
+        applicationNames: [
+          'RubyMine',
+        ],
         preferencePrefix: 'RubyMine',
         binaries: [
           'rubymine',
@@ -186,7 +229,9 @@ class JetBrainsProductConfiguration {
         ],
       ),
       JetBrainsProduct.webStorm: JetBrainsProductDetails(
-        applicationName: 'WebStorm',
+        applicationNames: [
+          'WebStorm',
+        ],
         preferencePrefix: 'WebStorm',
         binaries: [
           'webstorm',

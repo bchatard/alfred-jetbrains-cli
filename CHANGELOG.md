@@ -47,3 +47,8 @@
 
 - bump to Dart 3
 - bump dependencies
+
+## 0.0.12
+
+- ability to define multiple application name, since there differences between .dmg and toolbox app name
+- add DataSpell support

@@ -4,6 +4,7 @@ enum JetBrainsProduct {
   aqua,
   cLion,
   dataGrip,
+  dataSpell,
   fleet,
   // gateway,
   goLand,
