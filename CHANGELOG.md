@@ -56,3 +56,7 @@
 ## 0.0.13
 
 - all command: search projects for all products
+
+## 0.0.14
+
+- add some logs

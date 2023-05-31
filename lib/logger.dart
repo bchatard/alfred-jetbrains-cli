@@ -13,8 +13,8 @@ final Logger logger = Logger(
   filter: _AlfredFilter(),
   printer: PrettyPrinter(
     printTime: true,
-    colors: false,
-    printEmojis: false,
+    colors: !alfredMode,
+    printEmojis: !alfredMode,
     noBoxingByDefault: true,
     methodCount: 0,
   ),

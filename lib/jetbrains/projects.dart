@@ -28,11 +28,15 @@ class JetBrainsProjects {
 
   FileSystemEntity locateSettingsDirectory() {
     final productName = product.name.toJbName();
+    logger.i("Locate Settings Directory for ${product.name}");
     final productConfig = JetBrainsProductConfiguration.productConfig(product);
     final paths = _getSettingsPath();
+    logger.i("Search in $paths");
     for (var path in paths) {
       final Directory appSupport = Directory(parsePath(path));
+      logger.i("Looking in $appSupport");
       if (!appSupport.existsSync()) {
+        logger.e("$appSupport doesn't exists");
         throw FileSystemException(
           "Settings path doesn't exists",
           appSupport.absolute.path,
@@ -61,10 +65,14 @@ class JetBrainsProjects {
         });
 
       if (availablePaths.isNotEmpty) {
-        logger.i(availablePaths.toString());
+        logger.i("Settings Paths: $availablePaths");
+        logger.i("Use ${availablePaths.first}");
         return availablePaths.first;
       }
     }
+
+    logger.e("Can't find settings path for $productName");
+
     throw NotFoundException(
       message: "Can't find settings path for $productName",
       troubleshoot:
