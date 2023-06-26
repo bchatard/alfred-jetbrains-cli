@@ -60,3 +60,7 @@
 ## 0.0.14
 
 - add some logs
+
+## 0.0.15
+
+- add some application names

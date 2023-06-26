@@ -154,6 +154,7 @@ class JetBrainsProductConfiguration {
       JetBrainsProduct.intelliJIdeaCommunity: JetBrainsProductDetails(
         applicationNames: [
           'IntelliJ IDEA CE',
+          'IntelliJ IDEA Community',
           'IntelliJ IDEA Community Edition',
         ],
         preferencePrefix: 'IdeaIC',
@@ -166,6 +167,7 @@ class JetBrainsProductConfiguration {
         applicationNames: [
           'IntelliJ IDEA',
           'IntelliJ IDEA Ultimate',
+          'IntelliJ IDEA Ultimate Edition',
         ],
         preferencePrefix: 'IntelliJIdea',
         binaries: [
@@ -187,6 +189,8 @@ class JetBrainsProductConfiguration {
         applicationNames: [
           'PyCharm',
           'PyCharm Professional',
+          'PyCharm Professional',
+          'PyCharm Professional Edition',
         ],
         preferencePrefix: 'PyCharm',
         binaries: [
@@ -200,6 +204,7 @@ class JetBrainsProductConfiguration {
         applicationNames: [
           'PyCharm CE',
           'PyCharm Community',
+          'PyCharm Community Edition',
         ],
         preferencePrefix: 'PyCharmCE',
         binaries: [
