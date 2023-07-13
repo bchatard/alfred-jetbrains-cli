@@ -48,6 +48,12 @@ class JetBrainsProjectsExtractor {
   ) {
     final xmlDocument = XmlDocument.parse(xmlFile.readAsStringSync());
 
+    final Iterable<XmlNode> keys = xmlDocument.xpath(
+        "//component[@name='RiderRecentProjectsManager']/option[@name='additionalInfo']/map/entry/@key");
+    if (keys.isNotEmpty) {
+      return _replaceHome(keys);
+    }
+
     final Iterable<XmlNode> values = xmlDocument.xpath(
         "//component[@name='RiderRecentProjectsManager']/option[@name='recentPaths']/list/option/@value");
     if (values.isNotEmpty) {

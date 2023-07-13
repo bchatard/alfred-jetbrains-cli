@@ -64,3 +64,7 @@
 ## 0.0.15
 
 - add some application names
+
+## 0.0.16
+
+- fix xpath for Rider
