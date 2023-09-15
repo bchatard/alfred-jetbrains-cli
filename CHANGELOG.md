@@ -68,3 +68,8 @@
 ## 0.0.16
 
 - fix xpath for Rider
+
+## 0.0.17
+
+- add RustRover support
+- bump dependencies

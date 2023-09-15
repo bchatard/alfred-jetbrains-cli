@@ -15,6 +15,7 @@ enum JetBrainsProduct {
   pyCharmCommunity,
   rider,
   rubyMine,
+  rustRover,
   webStorm,
 }
 

@@ -38,6 +38,7 @@ const _$JetBrainsProductEnumMap = {
   JetBrainsProduct.pyCharmCommunity: 'pyCharmCommunity',
   JetBrainsProduct.rider: 'rider',
   JetBrainsProduct.rubyMine: 'rubyMine',
+  JetBrainsProduct.rustRover: 'rustRover',
   JetBrainsProduct.webStorm: 'webStorm',
 };
 

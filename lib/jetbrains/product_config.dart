@@ -189,7 +189,6 @@ class JetBrainsProductConfiguration {
         applicationNames: [
           'PyCharm',
           'PyCharm Professional',
-          'PyCharm Professional',
           'PyCharm Professional Edition',
         ],
         preferencePrefix: 'PyCharm',
@@ -231,6 +230,15 @@ class JetBrainsProductConfiguration {
         binaries: [
           'rubymine',
           'mine',
+        ],
+      ),
+      JetBrainsProduct.rustRover: JetBrainsProductDetails(
+        applicationNames: [
+          'RustRover',
+        ],
+        preferencePrefix: 'RustRover',
+        binaries: [
+          'rustrover',
         ],
       ),
       JetBrainsProduct.webStorm: JetBrainsProductDetails(
