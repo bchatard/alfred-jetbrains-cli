@@ -40,6 +40,7 @@ const _$JetBrainsProductEnumMap = {
   JetBrainsProduct.rubyMine: 'rubyMine',
   JetBrainsProduct.rustRover: 'rustRover',
   JetBrainsProduct.webStorm: 'webStorm',
+  JetBrainsProduct.writerside: 'writerside',
 };
 
 JetBrainsProductDetails _$JetBrainsProductDetailsFromJson(

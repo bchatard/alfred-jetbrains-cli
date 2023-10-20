@@ -44,7 +44,7 @@ class _FileOutput extends LogOutput {
   }
 
   @override
-  void init() {
+  Future<void> init() async {
     _sink = file.openWrite(
       mode: FileMode.writeOnlyAppend,
       encoding: utf8,

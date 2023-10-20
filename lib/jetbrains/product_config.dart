@@ -251,6 +251,15 @@ class JetBrainsProductConfiguration {
           'wstorm',
         ],
       ),
+      JetBrainsProduct.writerside: JetBrainsProductDetails(
+        applicationNames: [
+          'Writerside',
+        ],
+        preferencePrefix: 'Writerside',
+        binaries: [
+          'writerside',
+        ],
+      ),
     };
   }
 }

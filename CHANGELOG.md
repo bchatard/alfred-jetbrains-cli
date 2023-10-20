@@ -73,3 +73,8 @@
 
 - add RustRover support
 - bump dependencies
+
+## 0.0.18
+
+- add Writerside support
+- bump dependencies

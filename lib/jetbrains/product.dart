@@ -17,6 +17,7 @@ enum JetBrainsProduct {
   rubyMine,
   rustRover,
   webStorm,
+  writerside,
 }
 
 extension JetBrainsProductString on String {
