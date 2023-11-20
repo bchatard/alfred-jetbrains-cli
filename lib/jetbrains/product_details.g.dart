@@ -27,6 +27,7 @@ const _$JetBrainsProductEnumMap = {
   JetBrainsProduct.appCode: 'appCode',
   JetBrainsProduct.aqua: 'aqua',
   JetBrainsProduct.cLion: 'cLion',
+  JetBrainsProduct.cLionNova: 'cLionNova',
   JetBrainsProduct.dataGrip: 'dataGrip',
   JetBrainsProduct.dataSpell: 'dataSpell',
   JetBrainsProduct.fleet: 'fleet',

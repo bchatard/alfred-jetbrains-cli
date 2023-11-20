@@ -106,6 +106,16 @@ class JetBrainsProductConfiguration {
           'clion',
         ],
       ),
+      JetBrainsProduct.cLionNova: JetBrainsProductDetails(
+        applicationNames: [
+          'CLion Nova',
+        ],
+        preferencePrefix: 'CLionNova',
+        binaries: [
+          'nova',
+          'clion',
+        ],
+      ),
       JetBrainsProduct.dataGrip: JetBrainsProductDetails(
         applicationNames: [
           'DataGrip',

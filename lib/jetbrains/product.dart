@@ -3,6 +3,7 @@ enum JetBrainsProduct {
   appCode,
   aqua,
   cLion,
+  cLionNova,
   dataGrip,
   dataSpell,
   fleet,

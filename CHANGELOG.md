@@ -78,3 +78,9 @@
 
 - add Writerside support
 - bump dependencies
+
+## 0.0.19
+
+- bump min Dart to 3.2
+- bump dependencies
+- add Clion Nova support
