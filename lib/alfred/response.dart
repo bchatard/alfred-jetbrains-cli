@@ -18,6 +18,10 @@ class AlfredResponse {
     _addDebug(items);
 
     final Map<String, dynamic> response = {
+      'cache': {
+        'seconds': 60 * 60 * 24, // one day
+        'loosereload': true,
+      },
       'items': items,
     };
 

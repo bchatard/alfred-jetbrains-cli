@@ -84,3 +84,9 @@
 - bump min Dart to 3.2
 - bump dependencies
 - add Clion Nova support
+
+## 0.0.20
+
+- bump min Dart to 3.3
+- bump dependencies
+- add Alfred cache: https://www.alfredapp.com/help/workflows/inputs/script-filter/json/#cache
