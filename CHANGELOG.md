@@ -90,3 +90,8 @@
 - bump min Dart to 3.3
 - bump dependencies
 - add Alfred cache: https://www.alfredapp.com/help/workflows/inputs/script-filter/json/#cache
+
+## 0.0.21
+
+- bump min Dart to 3.5
+- bump dependencies

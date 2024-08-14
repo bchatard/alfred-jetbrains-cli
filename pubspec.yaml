@@ -1,25 +1,25 @@
 name: alfred_jetbrains_cli
 description: Companion CLI for Alfred JetBrains workflow
-version: 0.0.20
+version: 0.0.21
 repository: https://github.com/bchatard/alfred-jetbrains-cli
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=3.5.0 <4.0.0'
 
 dependencies:
   args: ^2.4.0
   io: ^1.0.4
-  json_annotation: ^4.8.0
-  logger: ^2.0.2+1
-  path: ^1.8.3
-  collection: ^1.17.1
-  xml: ^6.3.0
+  json_annotation: ^4.9.0
+  logger: ^2.4.0
+  path: ^1.9.0
+  collection: ^1.19.0
+  xml: ^6.5.0
   glob: ^2.1.2
 
 dev_dependencies:
-  build_runner: ^2.3.3
-  json_serializable: ^6.6.1
-  lints: ^3.0.0
+  build_runner: ^2.4.12
+  json_serializable: ^6.8.0
+  lints: ^4.0.0
   test: ^1.21.0
   build_pubspec:
     path: packages/build_pubspec
