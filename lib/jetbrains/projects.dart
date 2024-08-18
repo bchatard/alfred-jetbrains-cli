@@ -66,8 +66,17 @@ class JetBrainsProjects {
 
       if (availablePaths.isNotEmpty) {
         logger.i("Settings Paths: $availablePaths");
-        logger.i("Use ${availablePaths.first}");
-        return availablePaths.first;
+        for (FileSystemEntity availablePath in availablePaths) {
+          final Directory settingsPath =
+              Directory(parsePath(availablePath.absolute.path));
+          if (settingsPath
+                  .listSync(recursive: false, followLinks: false)
+                  .length >
+              1) {
+            logger.i("Use ${settingsPath.absolute.path}");
+            return settingsPath;
+          }
+        }
       }
     }
 

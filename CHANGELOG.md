@@ -95,3 +95,7 @@
 
 - bump min Dart to 3.5
 - bump dependencies
+
+## 0.0.22
+
+- fix https://github.com/bchatard/alfred-jetbrains/issues/340
