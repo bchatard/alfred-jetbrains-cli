@@ -34,8 +34,9 @@ class InstallCommand extends Command<int> {
   }
 
   Directory _locatePrefDirectory() {
-    final prefsFile =
-        File(parsePath('~/Library/Application Support/Alfred/prefs.json'));
+    final prefsFile = File(
+      parsePath('~/Library/Application Support/Alfred/prefs.json'),
+    );
     final prefs = jsonDecode(prefsFile.readAsStringSync());
     return Directory(prefs['current']);
   }

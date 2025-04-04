@@ -13,8 +13,9 @@ class JetBrainsProductConfiguration {
   static JetBrainsProductsDetails config() {
     if (_config == null) {
       final Map<String, String> env = Platform.environment;
-      final Map<String, dynamic> customConfig =
-          json.decode(env['jb_custom_config'] ?? '{}');
+      final Map<String, dynamic> customConfig = json.decode(
+        env['jb_custom_config'] ?? '{}',
+      );
       logger.i('Custom Config: $customConfig');
 
       _config = _mergeConfig(customConfig);
@@ -24,9 +25,7 @@ class JetBrainsProductConfiguration {
 
   static JetBrainsProductDetails productConfig(JetBrainsProduct product) {
     if (config().config.containsKey(product)) {
-      return config()
-          .config
-          .entries
+      return config().config.entries
           .singleWhere((element) => element.key == product)
           .value;
     }
@@ -36,112 +35,86 @@ class JetBrainsProductConfiguration {
   }
 
   static JetBrainsProductsDetails _mergeConfig(
-      Map<String, dynamic> customConfig) {
+    Map<String, dynamic> customConfig,
+  ) {
     final Map<String, dynamic> myConfig =
-        JetBrainsProductConfiguration.defaultConfig()
-            .map((defaultKey, defaultValue) {
-      // custom config contain an existing product
-      if (customConfig.containsKey(defaultKey.name)) {
-        final Map<String, dynamic> customConfigValue =
-            customConfig[defaultKey.name];
-        //
-        final Map<String, dynamic> value =
-            defaultValue.toJson().map((detailKey, detailValue) {
-          if (customConfigValue[detailKey] != null) {
-            return MapEntry(detailKey, customConfigValue[detailKey]);
+        JetBrainsProductConfiguration.defaultConfig().map((
+          defaultKey,
+          defaultValue,
+        ) {
+          // custom config contain an existing product
+          if (customConfig.containsKey(defaultKey.name)) {
+            final Map<String, dynamic> customConfigValue =
+                customConfig[defaultKey.name];
+            //
+            final Map<String, dynamic> value = defaultValue.toJson().map((
+              detailKey,
+              detailValue,
+            ) {
+              if (customConfigValue[detailKey] != null) {
+                return MapEntry(detailKey, customConfigValue[detailKey]);
+              }
+              return MapEntry(detailKey, detailValue);
+            });
+            // put override value
+            return MapEntry(defaultKey.name, value);
           }
-          return MapEntry(detailKey, detailValue);
+          // keep default value
+          return MapEntry(defaultKey.name, defaultValue.toJson());
         });
-        // put override value
-        return MapEntry(defaultKey.name, value);
-      }
-      // keep default value
-      return MapEntry(defaultKey.name, defaultValue.toJson());
-    });
 
     try {
       return JetBrainsProductsDetails.fromJson({"config": myConfig});
     } catch (e) {
       logger.e(e);
-      throw UsageException('Your configuration is not valid.',
-          'Please check the documentation, and fix your configuration.');
+      throw UsageException(
+        'Your configuration is not valid.',
+        'Please check the documentation, and fix your configuration.',
+      );
     }
   }
 
   static JetBrainsProductsConfig defaultConfig() {
     return {
       JetBrainsProduct.androidStudio: JetBrainsProductDetails(
-        applicationNames: [
-          'Android Studio',
-        ],
+        applicationNames: ['Android Studio'],
         preferencePrefix: 'AndroidStudio',
-        binaries: [
-          'studio',
-        ],
+        binaries: ['studio'],
       ),
       JetBrainsProduct.appCode: JetBrainsProductDetails(
-        applicationNames: [
-          'AppCode',
-        ],
+        applicationNames: ['AppCode'],
         preferencePrefix: 'AppCode',
-        binaries: [
-          'appcode',
-        ],
+        binaries: ['appcode'],
       ),
       JetBrainsProduct.aqua: JetBrainsProductDetails(
-        applicationNames: [
-          'Aqua',
-        ],
+        applicationNames: ['Aqua'],
         preferencePrefix: 'Aqua',
-        binaries: [
-          'aqua',
-        ],
+        binaries: ['aqua'],
       ),
       JetBrainsProduct.cLion: JetBrainsProductDetails(
-        applicationNames: [
-          'CLion',
-        ],
+        applicationNames: ['CLion'],
         preferencePrefix: 'CLion',
-        binaries: [
-          'clion',
-        ],
+        binaries: ['clion'],
       ),
       JetBrainsProduct.cLionNova: JetBrainsProductDetails(
-        applicationNames: [
-          'CLion Nova',
-        ],
+        applicationNames: ['CLion Nova'],
         preferencePrefix: 'CLionNova',
-        binaries: [
-          'nova',
-          'clion',
-        ],
+        binaries: ['nova', 'clion'],
       ),
       JetBrainsProduct.dataGrip: JetBrainsProductDetails(
-        applicationNames: [
-          'DataGrip',
-        ],
+        applicationNames: ['DataGrip'],
         preferencePrefix: 'DataGrip',
-        binaries: [
-          'datagrip',
-        ],
+        binaries: ['datagrip'],
       ),
       JetBrainsProduct.dataSpell: JetBrainsProductDetails(
-        applicationNames: [
-          'DataSpell',
-        ],
+        applicationNames: ['DataSpell'],
         preferencePrefix: 'DataSpell',
-        binaries: [
-          'dataspell',
-        ],
+        binaries: ['dataspell'],
       ),
       JetBrainsProduct.fleet: JetBrainsProductDetails(
-        applicationNames: [
-          'Fleet',
-        ],
+        applicationNames: ['Fleet'],
         preferencePrefix: 'Fleet',
-        binaries: [
-          'fleet',
-        ],
+        binaries: ['fleet'],
       ),
       // JetBrainsProduct.gateway: JetBrainsProductDetails(
       //   applicationNames: [
@@ -153,13 +126,9 @@ class JetBrainsProductConfiguration {
       //   ],
       // ),
       JetBrainsProduct.goLand: JetBrainsProductDetails(
-        applicationNames: [
-          'GoLand',
-        ],
+        applicationNames: ['GoLand'],
         preferencePrefix: 'GoLand',
-        binaries: [
-          'goland',
-        ],
+        binaries: ['goland'],
       ),
       JetBrainsProduct.intelliJIdeaCommunity: JetBrainsProductDetails(
         applicationNames: [
@@ -168,10 +137,7 @@ class JetBrainsProductConfiguration {
           'IntelliJ IDEA Community Edition',
         ],
         preferencePrefix: 'IdeaIC',
-        binaries: [
-          'idea',
-          'ideac',
-        ],
+        binaries: ['idea', 'ideac'],
       ),
       JetBrainsProduct.intelliJIdeaUltimate: JetBrainsProductDetails(
         applicationNames: [
@@ -180,20 +146,12 @@ class JetBrainsProductConfiguration {
           'IntelliJ IDEA Ultimate Edition',
         ],
         preferencePrefix: 'IntelliJIdea',
-        binaries: [
-          'idea',
-          'ideau',
-        ],
+        binaries: ['idea', 'ideau'],
       ),
       JetBrainsProduct.phpStorm: JetBrainsProductDetails(
-        applicationNames: [
-          'PhpStorm',
-        ],
+        applicationNames: ['PhpStorm'],
         preferencePrefix: 'PhpStorm',
-        binaries: [
-          'phpstorm',
-          'pstorm',
-        ],
+        binaries: ['phpstorm', 'pstorm'],
       ),
       JetBrainsProduct.pyCharmProfessional: JetBrainsProductDetails(
         applicationNames: [
@@ -202,12 +160,7 @@ class JetBrainsProductConfiguration {
           'PyCharm Professional Edition',
         ],
         preferencePrefix: 'PyCharm',
-        binaries: [
-          'pycharm',
-          'charm',
-          'pycharmp',
-          'charmp',
-        ],
+        binaries: ['pycharm', 'charm', 'pycharmp', 'charmp'],
       ),
       JetBrainsProduct.pyCharmCommunity: JetBrainsProductDetails(
         applicationNames: [
@@ -216,59 +169,32 @@ class JetBrainsProductConfiguration {
           'PyCharm Community Edition',
         ],
         preferencePrefix: 'PyCharmCE',
-        binaries: [
-          'pycharm',
-          'charm',
-          'pycharmc',
-          'charmc',
-        ],
+        binaries: ['pycharm', 'charm', 'pycharmc', 'charmc'],
       ),
       JetBrainsProduct.rider: JetBrainsProductDetails(
-        applicationNames: [
-          'Rider',
-        ],
+        applicationNames: ['Rider'],
         preferencePrefix: 'Rider',
-        binaries: [
-          'rider',
-        ],
+        binaries: ['rider'],
       ),
       JetBrainsProduct.rubyMine: JetBrainsProductDetails(
-        applicationNames: [
-          'RubyMine',
-        ],
+        applicationNames: ['RubyMine'],
         preferencePrefix: 'RubyMine',
-        binaries: [
-          'rubymine',
-          'mine',
-        ],
+        binaries: ['rubymine', 'mine'],
       ),
       JetBrainsProduct.rustRover: JetBrainsProductDetails(
-        applicationNames: [
-          'RustRover',
-        ],
+        applicationNames: ['RustRover'],
         preferencePrefix: 'RustRover',
-        binaries: [
-          'rustrover',
-        ],
+        binaries: ['rustrover'],
       ),
       JetBrainsProduct.webStorm: JetBrainsProductDetails(
-        applicationNames: [
-          'WebStorm',
-        ],
+        applicationNames: ['WebStorm'],
         preferencePrefix: 'WebStorm',
-        binaries: [
-          'webstorm',
-          'wstorm',
-        ],
+        binaries: ['webstorm', 'wstorm'],
       ),
       JetBrainsProduct.writerside: JetBrainsProductDetails(
-        applicationNames: [
-          'Writerside',
-        ],
+        applicationNames: ['Writerside'],
         preferencePrefix: 'Writerside',
-        binaries: [
-          'writerside',
-        ],
+        binaries: ['writerside'],
       ),
     };
   }

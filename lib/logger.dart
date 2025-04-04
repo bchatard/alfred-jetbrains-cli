@@ -18,10 +18,7 @@ final Logger logger = Logger(
     noBoxingByDefault: true,
     methodCount: 0,
   ),
-  output: MultiOutput([
-    loggerOutput,
-    if (!alfredMode) ConsoleOutput(),
-  ]),
+  output: MultiOutput([loggerOutput, if (!alfredMode) ConsoleOutput()]),
   level: Level.info,
 );
 
@@ -35,20 +32,14 @@ class _FileOutput extends LogOutput {
     final String date = now.toIso8601String().split('T').first;
     return File(
       debugMode
-          ? join(
-              Directory.systemTemp.absolute.path,
-              '${packageName}_$date.log',
-            )
+          ? join(Directory.systemTemp.absolute.path, '${packageName}_$date.log')
           : '/dev/null',
     );
   }
 
   @override
   Future<void> init() async {
-    _sink = file.openWrite(
-      mode: FileMode.writeOnlyAppend,
-      encoding: utf8,
-    );
+    _sink = file.openWrite(mode: FileMode.writeOnlyAppend, encoding: utf8);
   }
 
   @override

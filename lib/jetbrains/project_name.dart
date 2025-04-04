@@ -24,15 +24,16 @@ class JetBrainsProjectName {
         return dotName;
       }
 
-      final Iterable<FileSystemEntity> imlFiles = Directory(ideaPath)
-          .listSync()
-          .where((file) => extension(file.path) == '.iml');
+      final Iterable<FileSystemEntity> imlFiles = Directory(
+        ideaPath,
+      ).listSync().where((file) => extension(file.path) == '.iml');
       if (imlFiles.isNotEmpty) {
         return basenameWithoutExtension(imlFiles.first.absolute.path);
       }
 
-      String? workspaceName =
-          _fromWorkspace(File(join(ideaPath, 'workspace.xml')));
+      String? workspaceName = _fromWorkspace(
+        File(join(ideaPath, 'workspace.xml')),
+      );
       if (workspaceName != null) {
         return workspaceName;
       }

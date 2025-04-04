@@ -31,21 +31,20 @@ class SearchCommand extends Command<int> {
         allowedHelp: allowedProducts,
         allowed: allowedProducts.keys,
       )
-      ..addOption(
-        'filter',
-        help: 'Filter projects',
-      );
+      ..addOption('filter', help: 'Filter projects');
   }
 
   @override
   FutureOr<int>? run() async {
-    final JetBrainsProduct product =
-        JetBrainsProduct.values.byName(argResults!['product']);
+    final JetBrainsProduct product = JetBrainsProduct.values.byName(
+      argResults!['product'],
+    );
     String filter = argResults!['filter'] ?? '';
     filter = filter.toLowerCase();
     final response = AlfredResponse();
     logger.i(
-        "Search projects for ${product.name.toJbName()} with filter '$filter'");
+      "Search projects for ${product.name.toJbName()} with filter '$filter'",
+    );
 
     Iterable<ResultItem> items = <ResultItem>[];
 
@@ -70,9 +69,9 @@ class SearchCommand extends Command<int> {
         items = items.where((ResultItem item) {
           if (item.title.toLowerCase().contains(filter) ||
               (item.variables != null &&
-                  item.variables!.jbSearchBasename
-                      .toLowerCase()
-                      .contains(filter))) {
+                  item.variables!.jbSearchBasename.toLowerCase().contains(
+                    filter,
+                  ))) {
             return true;
           }
           return false;
@@ -82,18 +81,20 @@ class SearchCommand extends Command<int> {
       // (if some are thrown in previous map)
       items = items.toList();
     } on NotFoundException catch (e) {
-      final notFound = ResultItemBuilder(
-        name: e.message,
-        path: e.troubleshoot ?? e.message,
-        iconPath: iconError,
-      ).build();
+      final notFound =
+          ResultItemBuilder(
+            name: e.message,
+            path: e.troubleshoot ?? e.message,
+            iconPath: iconError,
+          ).build();
       items = [notFound];
     } catch (e) {
-      final globalException = ResultItemBuilder(
-        name: e.toString(),
-        path: e.toString(),
-        iconPath: iconBod,
-      ).build();
+      final globalException =
+          ResultItemBuilder(
+            name: e.toString(),
+            path: e.toString(),
+            iconPath: iconBod,
+          ).build();
       items = [globalException];
     }
 

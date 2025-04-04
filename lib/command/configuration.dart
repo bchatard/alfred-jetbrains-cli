@@ -16,8 +16,11 @@ class ConfigurationCommand extends Command<int> {
 
   @override
   FutureOr<int>? run() async {
-    print(JsonEncoder.withIndent('  ')
-        .convert(JetBrainsProductConfiguration.config()));
+    print(
+      JsonEncoder.withIndent(
+        '  ',
+      ).convert(JetBrainsProductConfiguration.config()),
+    );
 
     return ExitCode.success.code;
   }

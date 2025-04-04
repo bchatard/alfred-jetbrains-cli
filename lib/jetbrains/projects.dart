@@ -44,31 +44,39 @@ class JetBrainsProjects {
       }
 
       logger.i(
-          "Application Support: ${appSupport.absolute.path}/${productConfig.preferencePrefix}");
+        "Application Support: ${appSupport.absolute.path}/${productConfig.preferencePrefix}",
+      );
       // Fleet preferences directory doesn't contains version
       // maybe this will change with stable release
-      final prefPattern = (product == JetBrainsProduct.fleet)
-          ? RegExp(productConfig.preferencePrefix)
-          : RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)");
-      List<FileSystemEntity> availablePaths = appSupport
-          .listSync(recursive: false, followLinks: true)
-          .where((FileSystemEntity event) =>
-              FileSystemEntity.isDirectorySync(event.absolute.path) &&
-              prefPattern.hasMatch(basename(event.absolute.path)))
-          .toList()
-        ..sort((FileSystemEntity a, FileSystemEntity b) {
-          final String aVersion =
-              prefPattern.allMatches(a.path).first.group(1).toString();
-          final String bVersion =
-              prefPattern.allMatches(b.path).first.group(1).toString();
-          return bVersion.compareTo(aVersion);
-        });
+      final prefPattern =
+          (product == JetBrainsProduct.fleet)
+              ? RegExp(productConfig.preferencePrefix)
+              : RegExp(
+                "${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)",
+              );
+      List<FileSystemEntity> availablePaths =
+          appSupport
+              .listSync(recursive: false, followLinks: true)
+              .where(
+                (FileSystemEntity event) =>
+                    FileSystemEntity.isDirectorySync(event.absolute.path) &&
+                    prefPattern.hasMatch(basename(event.absolute.path)),
+              )
+              .toList()
+            ..sort((FileSystemEntity a, FileSystemEntity b) {
+              final String aVersion =
+                  prefPattern.allMatches(a.path).first.group(1).toString();
+              final String bVersion =
+                  prefPattern.allMatches(b.path).first.group(1).toString();
+              return bVersion.compareTo(aVersion);
+            });
 
       if (availablePaths.isNotEmpty) {
         logger.i("Settings Paths: $availablePaths");
         for (FileSystemEntity availablePath in availablePaths) {
-          final Directory settingsPath =
-              Directory(parsePath(availablePath.absolute.path));
+          final Directory settingsPath = Directory(
+            parsePath(availablePath.absolute.path),
+          );
           if (settingsPath
                   .listSync(recursive: false, followLinks: false)
                   .length >
@@ -93,12 +101,14 @@ class JetBrainsProjects {
     final FileSystemEntity settingsPath = locateSettingsDirectory();
     final String optionsPath = join(settingsPath.absolute.path, 'options');
 
-    final File recentProjectDirectories =
-        File(join(optionsPath, 'recentProjectDirectories.xml'));
+    final File recentProjectDirectories = File(
+      join(optionsPath, 'recentProjectDirectories.xml'),
+    );
     if (recentProjectDirectories.existsSync()) {
       logger.i("Use recentProjectDirectories.xml");
       return JetBrainsProjectsExtractor.recentProjectDirectoriesExtractor(
-          recentProjectDirectories);
+        recentProjectDirectories,
+      );
     }
 
     final File recentProjects = File(join(optionsPath, 'recentProjects.xml'));
@@ -111,7 +121,8 @@ class JetBrainsProjects {
     if (recentSolutions.existsSync()) {
       logger.i("Use recentSolutions.xml");
       return JetBrainsProjectsExtractor.recentSolutionsExtractor(
-          recentSolutions);
+        recentSolutions,
+      );
     }
 
     if (product == JetBrainsProduct.fleet) {
@@ -123,12 +134,16 @@ class JetBrainsProjects {
 
   Iterable<String> _retrieveFleetProjects(FileSystemEntity settingsPath) {
     final List<FileSystemEntity> files =
-        Glob(join(settingsPath.absolute.path, 'backend/**/trusted-paths.xml'))
-            .listSync();
+        Glob(
+          join(settingsPath.absolute.path, 'backend/**/trusted-paths.xml'),
+        ).listSync();
     final List<String> paths = [];
     for (var file in files) {
-      paths.addAll(JetBrainsProjectsExtractor.trustedPathsExtractor(
-          File(file.absolute.path)));
+      paths.addAll(
+        JetBrainsProjectsExtractor.trustedPathsExtractor(
+          File(file.absolute.path),
+        ),
+      );
     }
     return paths;
   }

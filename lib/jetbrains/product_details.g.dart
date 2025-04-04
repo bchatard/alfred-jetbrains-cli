@@ -7,20 +7,23 @@ part of 'product_details.dart';
 // **************************************************************************
 
 JetBrainsProductsDetails _$JetBrainsProductsDetailsFromJson(
-        Map<String, dynamic> json) =>
-    JetBrainsProductsDetails(
-      config: (json['config'] as Map<String, dynamic>).map(
-        (k, e) => MapEntry($enumDecode(_$JetBrainsProductEnumMap, k),
-            JetBrainsProductDetails.fromJson(e as Map<String, dynamic>)),
-      ),
-    );
+  Map<String, dynamic> json,
+) => JetBrainsProductsDetails(
+  config: (json['config'] as Map<String, dynamic>).map(
+    (k, e) => MapEntry(
+      $enumDecode(_$JetBrainsProductEnumMap, k),
+      JetBrainsProductDetails.fromJson(e as Map<String, dynamic>),
+    ),
+  ),
+);
 
 Map<String, dynamic> _$JetBrainsProductsDetailsToJson(
-        JetBrainsProductsDetails instance) =>
-    <String, dynamic>{
-      'config': instance.config
-          .map((k, e) => MapEntry(_$JetBrainsProductEnumMap[k]!, e.toJson())),
-    };
+  JetBrainsProductsDetails instance,
+) => <String, dynamic>{
+  'config': instance.config.map(
+    (k, e) => MapEntry(_$JetBrainsProductEnumMap[k]!, e.toJson()),
+  ),
+};
 
 const _$JetBrainsProductEnumMap = {
   JetBrainsProduct.androidStudio: 'androidStudio',
@@ -45,20 +48,21 @@ const _$JetBrainsProductEnumMap = {
 };
 
 JetBrainsProductDetails _$JetBrainsProductDetailsFromJson(
-        Map<String, dynamic> json) =>
-    JetBrainsProductDetails(
-      applicationNames: (json['applicationNames'] as List<dynamic>)
+  Map<String, dynamic> json,
+) => JetBrainsProductDetails(
+  applicationNames:
+      (json['applicationNames'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      preferencePrefix: json['preferencePrefix'] as String,
-      binaries:
-          (json['binaries'] as List<dynamic>).map((e) => e as String).toList(),
-    );
+  preferencePrefix: json['preferencePrefix'] as String,
+  binaries:
+      (json['binaries'] as List<dynamic>).map((e) => e as String).toList(),
+);
 
 Map<String, dynamic> _$JetBrainsProductDetailsToJson(
-        JetBrainsProductDetails instance) =>
-    <String, dynamic>{
-      'applicationNames': instance.applicationNames,
-      'preferencePrefix': instance.preferencePrefix,
-      'binaries': instance.binaries,
-    };
+  JetBrainsProductDetails instance,
+) => <String, dynamic>{
+  'applicationNames': instance.applicationNames,
+  'preferencePrefix': instance.preferencePrefix,
+  'binaries': instance.binaries,
+};

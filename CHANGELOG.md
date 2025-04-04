@@ -99,3 +99,9 @@
 ## 0.0.22
 
 - fix https://github.com/bchatard/alfred-jetbrains/issues/340
+
+## 0.0.23
+
+- Bump to Dart 3.7.0
+- Bump dependencies
+- Re-format code with new formatter

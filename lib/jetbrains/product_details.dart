@@ -4,8 +4,8 @@ import 'jetbrains.dart';
 
 part 'product_details.g.dart';
 
-typedef JetBrainsProductsConfig
-    = Map<JetBrainsProduct, JetBrainsProductDetails>;
+typedef JetBrainsProductsConfig =
+    Map<JetBrainsProduct, JetBrainsProductDetails>;
 
 @JsonSerializable(explicitToJson: true)
 class JetBrainsProductsDetails {

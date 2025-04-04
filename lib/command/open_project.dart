@@ -32,17 +32,14 @@ class OpenProjectCommand extends Command<int> {
         allowedHelp: allowedProducts,
         allowed: allowedProducts.keys,
       )
-      ..addOption(
-        'path',
-        help: 'Path to a project',
-        mandatory: true,
-      );
+      ..addOption('path', help: 'Path to a project', mandatory: true);
   }
 
   @override
   FutureOr<int>? run() async {
-    final JetBrainsProduct product =
-        JetBrainsProduct.values.byName(argResults!['product']);
+    final JetBrainsProduct product = JetBrainsProduct.values.byName(
+      argResults!['product'],
+    );
     final String projectPath = argResults!['path'];
     final response = AlfredResponse();
     logger.i("Open project in '$projectPath' for ${product.name.toJbName()}");
@@ -54,24 +51,27 @@ class OpenProjectCommand extends Command<int> {
 
       final JetBrainsProjectName project = JetBrainsProjectName(projectPath);
 
-      item = ResultItemBuilder(
-        name: project.name,
-        path: projectPath,
-        iconPath: jbProduct.locateApplication().absolute.path,
-        binPath: jbProduct.locateBin().absolute.path,
-      ).build();
+      item =
+          ResultItemBuilder(
+            name: project.name,
+            path: projectPath,
+            iconPath: jbProduct.locateApplication().absolute.path,
+            binPath: jbProduct.locateBin().absolute.path,
+          ).build();
     } on NotFoundException catch (e) {
-      item = ResultItemBuilder(
-        name: e.message,
-        path: e.troubleshoot ?? e.message,
-        iconPath: iconError,
-      ).build();
+      item =
+          ResultItemBuilder(
+            name: e.message,
+            path: e.troubleshoot ?? e.message,
+            iconPath: iconError,
+          ).build();
     } catch (e) {
-      item = ResultItemBuilder(
-        name: e.toString(),
-        path: e.toString(),
-        iconPath: iconBod,
-      ).build();
+      item =
+          ResultItemBuilder(
+            name: e.toString(),
+            path: e.toString(),
+            iconPath: iconBod,
+          ).build();
     }
 
     response.renderItem(item);

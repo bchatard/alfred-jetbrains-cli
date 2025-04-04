@@ -7,41 +7,34 @@ part of 'result_item.dart';
 // **************************************************************************
 
 ResultItem _$ResultItemFromJson(Map<String, dynamic> json) => ResultItem(
-      uid: json['uid'] as String,
-      title: json['title'] as String,
-      match: json['match'] as String,
-      subtitle: json['subtitle'] as String,
-      arg: json['arg'] as String,
-      autocomplete: json['autocomplete'] as String,
-      text: ResultItemText.fromJson(json['text'] as Map<String, dynamic>),
-      icon: ResultItemIcon.fromJson(json['icon'] as Map<String, dynamic>),
-      variables: json['variables'] == null
+  uid: json['uid'] as String,
+  title: json['title'] as String,
+  match: json['match'] as String,
+  subtitle: json['subtitle'] as String,
+  arg: json['arg'] as String,
+  autocomplete: json['autocomplete'] as String,
+  text: ResultItemText.fromJson(json['text'] as Map<String, dynamic>),
+  icon: ResultItemIcon.fromJson(json['icon'] as Map<String, dynamic>),
+  variables:
+      json['variables'] == null
           ? null
           : ResultItemVariables.fromJson(
-              json['variables'] as Map<String, dynamic>),
-    );
+            json['variables'] as Map<String, dynamic>,
+          ),
+);
 
-Map<String, dynamic> _$ResultItemToJson(ResultItem instance) {
-  final val = <String, dynamic>{
-    'uid': instance.uid,
-    'title': instance.title,
-    'match': instance.match,
-    'subtitle': instance.subtitle,
-    'arg': instance.arg,
-    'autocomplete': instance.autocomplete,
-    'text': instance.text.toJson(),
-    'icon': instance.icon.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('variables', instance.variables?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ResultItemToJson(ResultItem instance) =>
+    <String, dynamic>{
+      'uid': instance.uid,
+      'title': instance.title,
+      'match': instance.match,
+      'subtitle': instance.subtitle,
+      'arg': instance.arg,
+      'autocomplete': instance.autocomplete,
+      'text': instance.text.toJson(),
+      'icon': instance.icon.toJson(),
+      if (instance.variables?.toJson() case final value?) 'variables': value,
+    };
 
 ResultItemText _$ResultItemTextFromJson(Map<String, dynamic> json) =>
     ResultItemText(
@@ -50,31 +43,16 @@ ResultItemText _$ResultItemTextFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ResultItemTextToJson(ResultItemText instance) =>
-    <String, dynamic>{
-      'copy': instance.copy,
-      'largetype': instance.largeType,
-    };
+    <String, dynamic>{'copy': instance.copy, 'largetype': instance.largeType};
 
 ResultItemIcon _$ResultItemIconFromJson(Map<String, dynamic> json) =>
-    ResultItemIcon(
-      path: json['path'] as String,
-      type: json['type'] as String?,
-    );
+    ResultItemIcon(path: json['path'] as String, type: json['type'] as String?);
 
-Map<String, dynamic> _$ResultItemIconToJson(ResultItemIcon instance) {
-  final val = <String, dynamic>{
-    'path': instance.path,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', instance.type);
-  return val;
-}
+Map<String, dynamic> _$ResultItemIconToJson(ResultItemIcon instance) =>
+    <String, dynamic>{
+      'path': instance.path,
+      if (instance.type case final value?) 'type': value,
+    };
 
 ResultItemVariables _$ResultItemVariablesFromJson(Map<String, dynamic> json) =>
     ResultItemVariables(
@@ -85,10 +63,10 @@ ResultItemVariables _$ResultItemVariablesFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ResultItemVariablesToJson(
-        ResultItemVariables instance) =>
-    <String, dynamic>{
-      'jb_project_name': instance.jbProjectName,
-      'jb_bin': instance.jbBin,
-      'jb_search_basename': instance.jbSearchBasename,
-      'jb_is_new_bin': instance.jbIsNewBin,
-    };
+  ResultItemVariables instance,
+) => <String, dynamic>{
+  'jb_project_name': instance.jbProjectName,
+  'jb_bin': instance.jbBin,
+  'jb_search_basename': instance.jbSearchBasename,
+  'jb_is_new_bin': instance.jbIsNewBin,
+};

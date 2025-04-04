@@ -21,10 +21,7 @@ class SearchAllCommand extends Command<int> {
       allowedProducts[product.name] = product.name.toJbName();
     }
 
-    argParser.addOption(
-      'filter',
-      help: 'Filter projects',
-    );
+    argParser.addOption('filter', help: 'Filter projects');
   }
 
   @override
@@ -45,16 +42,17 @@ class SearchAllCommand extends Command<int> {
     }
 
     if (filter.isNotEmpty) {
-      items = items.toSet().where((ResultItem item) {
-        if (item.title.toLowerCase().contains(filter) ||
-            (item.variables != null &&
-                item.variables!.jbSearchBasename
-                    .toLowerCase()
-                    .contains(filter))) {
-          return true;
-        }
-        return false;
-      }).toList();
+      items =
+          items.toSet().where((ResultItem item) {
+            if (item.title.toLowerCase().contains(filter) ||
+                (item.variables != null &&
+                    item.variables!.jbSearchBasename.toLowerCase().contains(
+                      filter,
+                    ))) {
+              return true;
+            }
+            return false;
+          }).toList();
     }
 
     response.renderItems(items.toList());

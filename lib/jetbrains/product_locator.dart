@@ -28,8 +28,8 @@ class JetBrainsProductLocator {
     logger.i("Locate Bin for ${product.name.toJbName()}");
     final Map<String, String> env = Platform.environment;
     final jbBinaries = env['jb_binaries'] ?? '';
-    final List<String> paths =
-        (jbBinaries.isEmpty ? env['PATH']! : jbBinaries).split(':');
+    final List<String> paths = (jbBinaries.isEmpty ? env['PATH']! : jbBinaries)
+        .split(':');
     final JetBrainsProductDetails productConfig =
         JetBrainsProductConfiguration.productConfig(product);
     final List<String> binaries = productConfig.binaries;
@@ -47,8 +47,9 @@ class JetBrainsProductLocator {
         logger.i("$binPath doesn't exists");
         continue;
       }
-      final FileSystemEntity? bin =
-          binPath.listSync().singleWhereOrNull((file) {
+      final FileSystemEntity? bin = binPath.listSync().singleWhereOrNull((
+        file,
+      ) {
         final binName = basename(file.absolute.path);
         logger.i("Check binary $binName");
         return binaries.contains(binName);
@@ -91,12 +92,14 @@ class JetBrainsProductLocator {
         logger.i("$appPath doesn't exists");
         continue;
       }
-      final FileSystemEntity? app =
-          appPath.listSync().singleWhereOrNull((file) {
+      final FileSystemEntity? app = appPath.listSync().singleWhereOrNull((
+        file,
+      ) {
         String basePath = basenameWithoutExtension(file.absolute.path);
         logger.i("Check application $basePath");
-        return productConfig.applicationNames
-                .singleWhereOrNull((appName) => appName == basePath) !=
+        return productConfig.applicationNames.singleWhereOrNull(
+              (appName) => appName == basePath,
+            ) !=
             null;
       });
 
