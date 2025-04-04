@@ -1,6 +1,6 @@
 name: alfred_jetbrains_cli
 description: Companion CLI for Alfred JetBrains workflow
-version: 0.0.23
+version: 0.0.24
 repository: https://github.com/bchatard/alfred-jetbrains-cli
 
 environment:
@@ -23,3 +23,10 @@ dev_dependencies:
   test: ^1.25.12
   build_pubspec:
     path: packages/build_pubspec
+  husky: ^0.1.7
+  commitlint_cli: ^0.8.1
+  lint_staged: ^0.5.1
+
+lint_staged:
+  '*': dart analyze .
+  '{lib/**.dart, bin/*.dart}': dart format && dart fix --apply

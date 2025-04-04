@@ -105,3 +105,7 @@
 - Bump to Dart 3.7.0
 - Bump dependencies
 - Re-format code with new formatter
+
+## 0.0.24
+
+- chore: add commit / code linters, with git hooks
