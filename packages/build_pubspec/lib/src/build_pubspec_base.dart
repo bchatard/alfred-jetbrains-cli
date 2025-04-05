@@ -2,7 +2,8 @@ import 'package:build/build.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 
 Builder buildPubspec([BuilderOptions? options]) => _PubspecBuilder(
-    (options?.config['output'] as String?) ?? 'lib/src/pubspec.dart');
+  (options?.config['output'] as String?) ?? 'lib/src/pubspec.dart',
+);
 
 class _PubspecBuilder implements Builder {
   final String output;
@@ -23,7 +24,8 @@ class _PubspecBuilder implements Builder {
 
     if (pubspec.description == null || pubspec.version == null) {
       throw StateError(
-          'pubspec.yaml does not have a description or version defined.');
+        'pubspec.yaml does not have a description or version defined.',
+      );
     }
 
     await buildStep.writeAsString(buildStep.allowedOutputs.single, '''
@@ -36,6 +38,6 @@ const packageVersion = '${pubspec.version}';
 
   @override
   Map<String, List<String>> get buildExtensions => {
-        'pubspec.yaml': [output],
-      };
+    'pubspec.yaml': [output],
+  };
 }
