@@ -109,3 +109,7 @@
 ## 0.0.24
 
 - chore: add commit / code linters, with git hooks
+
+## 0.0.25
+
+- chore: bump dependencies for build_pubspec

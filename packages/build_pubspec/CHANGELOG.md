@@ -6,3 +6,8 @@
 
 - bump min Dart to 3.3
 - bump dependencies
+
+## 1.2.0
+
+- bump min Dart to 3.7
+- bump dependencies
