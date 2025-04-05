@@ -1,0 +1,32 @@
+name: Validate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/validate.yml"
+      - "bin/alfred_jetbrains_cli.dart"
+      - "lib/**"
+      - "test/**"
+      - "pubspec.yaml"
+      - "packages/build_pubspec/lib/**"
+      - "packages/build_pubspec/pubspec.yaml"
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+      - name: Install Dependencies
+        run: dart pub get
+      - name: Check code format
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Analyze code
+        run: dart analyze
+      - name: Run test
+        run: dart test
