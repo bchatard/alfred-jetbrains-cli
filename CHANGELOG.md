@@ -113,3 +113,8 @@
 ## 0.0.25
 
 - chore: bump dependencies for build_pubspec
+
+## 0.0.26
+
+- Bump to Dart 3.8.0
+- Bump dependencies

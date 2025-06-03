@@ -15,3 +15,8 @@
 ## 1.2.1
 
 - fix: new linter / formatter
+
+## 1.3.0
+
+- bump min Dart to 3.8
+- bump dependencies

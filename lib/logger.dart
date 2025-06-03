@@ -12,7 +12,7 @@ final loggerOutput = _FileOutput();
 final Logger logger = Logger(
   filter: _AlfredFilter(),
   printer: PrettyPrinter(
-    printTime: true,
+    dateTimeFormat: DateTimeFormat.onlyTimeAndSinceStart,
     colors: !alfredMode,
     printEmojis: !alfredMode,
     noBoxingByDefault: true,
