@@ -50,13 +50,13 @@ const _$JetBrainsProductEnumMap = {
 JetBrainsProductDetails _$JetBrainsProductDetailsFromJson(
   Map<String, dynamic> json,
 ) => JetBrainsProductDetails(
-  applicationNames:
-      (json['applicationNames'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+  applicationNames: (json['applicationNames'] as List<dynamic>)
+      .map((e) => e as String)
+      .toList(),
   preferencePrefix: json['preferencePrefix'] as String,
-  binaries:
-      (json['binaries'] as List<dynamic>).map((e) => e as String).toList(),
+  binaries: (json['binaries'] as List<dynamic>)
+      .map((e) => e as String)
+      .toList(),
 );
 
 Map<String, dynamic> _$JetBrainsProductDetailsToJson(

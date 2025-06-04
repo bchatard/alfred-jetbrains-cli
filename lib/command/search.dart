@@ -18,8 +18,9 @@ class SearchCommand extends Command<int> {
 
   SearchCommand() {
     final allowedProducts = <String, String>{};
-    for (var product in [...JetBrainsProduct.values]
-      ..sort(Enum.compareByName)) {
+    for (var product in [
+      ...JetBrainsProduct.values,
+    ]..sort(Enum.compareByName)) {
       allowedProducts[product.name] = product.name.toJbName();
     }
 
@@ -81,20 +82,18 @@ class SearchCommand extends Command<int> {
       // (if some are thrown in previous map)
       items = items.toList();
     } on NotFoundException catch (e) {
-      final notFound =
-          ResultItemBuilder(
-            name: e.message,
-            path: e.troubleshoot ?? e.message,
-            iconPath: iconError,
-          ).build();
+      final notFound = ResultItemBuilder(
+        name: e.message,
+        path: e.troubleshoot ?? e.message,
+        iconPath: iconError,
+      ).build();
       items = [notFound];
     } catch (e) {
-      final globalException =
-          ResultItemBuilder(
-            name: e.toString(),
-            path: e.toString(),
-            iconPath: iconBod,
-          ).build();
+      final globalException = ResultItemBuilder(
+        name: e.toString(),
+        path: e.toString(),
+        iconPath: iconBod,
+      ).build();
       items = [globalException];
     }
 

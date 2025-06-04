@@ -15,12 +15,9 @@ ResultItem _$ResultItemFromJson(Map<String, dynamic> json) => ResultItem(
   autocomplete: json['autocomplete'] as String,
   text: ResultItemText.fromJson(json['text'] as Map<String, dynamic>),
   icon: ResultItemIcon.fromJson(json['icon'] as Map<String, dynamic>),
-  variables:
-      json['variables'] == null
-          ? null
-          : ResultItemVariables.fromJson(
-            json['variables'] as Map<String, dynamic>,
-          ),
+  variables: json['variables'] == null
+      ? null
+      : ResultItemVariables.fromJson(json['variables'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ResultItemToJson(ResultItem instance) =>

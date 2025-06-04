@@ -77,8 +77,9 @@ class JetBrainsProductLocator {
     logger.i("Locate Application for ${product.name.toJbName()}");
     final Map<String, String> env = Platform.environment;
     final jbApplications = env['jb_application'] ?? '';
-    final List<String> paths =
-        jbApplications.isEmpty ? _applicationPath : jbApplications.split(':');
+    final List<String> paths = jbApplications.isEmpty
+        ? _applicationPath
+        : jbApplications.split(':');
     final JetBrainsProductDetails productConfig =
         JetBrainsProductConfiguration.productConfig(product);
 

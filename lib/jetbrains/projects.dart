@@ -48,12 +48,9 @@ class JetBrainsProjects {
       );
       // Fleet preferences directory doesn't contains version
       // maybe this will change with stable release
-      final prefPattern =
-          (product == JetBrainsProduct.fleet)
-              ? RegExp(productConfig.preferencePrefix)
-              : RegExp(
-                "${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)",
-              );
+      final prefPattern = (product == JetBrainsProduct.fleet)
+          ? RegExp(productConfig.preferencePrefix)
+          : RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)");
       List<FileSystemEntity> availablePaths =
           appSupport
               .listSync(recursive: false, followLinks: true)
@@ -64,10 +61,16 @@ class JetBrainsProjects {
               )
               .toList()
             ..sort((FileSystemEntity a, FileSystemEntity b) {
-              final String aVersion =
-                  prefPattern.allMatches(a.path).first.group(1).toString();
-              final String bVersion =
-                  prefPattern.allMatches(b.path).first.group(1).toString();
+              final String aVersion = prefPattern
+                  .allMatches(a.path)
+                  .first
+                  .group(1)
+                  .toString();
+              final String bVersion = prefPattern
+                  .allMatches(b.path)
+                  .first
+                  .group(1)
+                  .toString();
               return bVersion.compareTo(aVersion);
             });
 
@@ -133,10 +136,9 @@ class JetBrainsProjects {
   }
 
   Iterable<String> _retrieveFleetProjects(FileSystemEntity settingsPath) {
-    final List<FileSystemEntity> files =
-        Glob(
-          join(settingsPath.absolute.path, 'backend/**/trusted-paths.xml'),
-        ).listSync();
+    final List<FileSystemEntity> files = Glob(
+      join(settingsPath.absolute.path, 'backend/**/trusted-paths.xml'),
+    ).listSync();
     final List<String> paths = [];
     for (var file in files) {
       paths.addAll(

@@ -16,8 +16,9 @@ class SearchAllCommand extends Command<int> {
 
   SearchAllCommand() {
     final allowedProducts = <String, String>{};
-    for (var product in [...JetBrainsProduct.values]
-      ..sort(Enum.compareByName)) {
+    for (var product in [
+      ...JetBrainsProduct.values,
+    ]..sort(Enum.compareByName)) {
       allowedProducts[product.name] = product.name.toJbName();
     }
 
@@ -42,17 +43,16 @@ class SearchAllCommand extends Command<int> {
     }
 
     if (filter.isNotEmpty) {
-      items =
-          items.toSet().where((ResultItem item) {
-            if (item.title.toLowerCase().contains(filter) ||
-                (item.variables != null &&
-                    item.variables!.jbSearchBasename.toLowerCase().contains(
-                      filter,
-                    ))) {
-              return true;
-            }
-            return false;
-          }).toList();
+      items = items.toSet().where((ResultItem item) {
+        if (item.title.toLowerCase().contains(filter) ||
+            (item.variables != null &&
+                item.variables!.jbSearchBasename.toLowerCase().contains(
+                  filter,
+                ))) {
+          return true;
+        }
+        return false;
+      }).toList();
     }
 
     response.renderItems(items.toList());

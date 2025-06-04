@@ -118,3 +118,4 @@
 
 - Bump to Dart 3.8.0
 - Bump dependencies
+- Re-format code with new formatter
