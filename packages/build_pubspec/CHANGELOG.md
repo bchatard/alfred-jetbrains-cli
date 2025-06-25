@@ -20,3 +20,7 @@
 
 - bump min Dart to 3.8
 - bump dependencies
+
+## 1.3.1
+
+- bump dependencies

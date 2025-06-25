@@ -123,3 +123,4 @@
 ## 0.0.27
 
 - fix: Android Studio can use full version for application settings path
+- Bump dependencies
