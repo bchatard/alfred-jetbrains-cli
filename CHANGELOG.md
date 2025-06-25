@@ -119,3 +119,7 @@
 - Bump to Dart 3.8.0
 - Bump dependencies
 - Re-format code with new formatter
+
+## 0.0.27
+
+- fix: Android Studio can use full version for application settings path

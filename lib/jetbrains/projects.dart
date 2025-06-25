@@ -46,11 +46,21 @@ class JetBrainsProjects {
       logger.i(
         "Application Support: ${appSupport.absolute.path}/${productConfig.preferencePrefix}",
       );
-      // Fleet preferences directory doesn't contains version
-      // maybe this will change with stable release
-      final prefPattern = (product == JetBrainsProduct.fleet)
-          ? RegExp(productConfig.preferencePrefix)
-          : RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)");
+      final prefPattern = switch (product) {
+        // The Fleet preferences directory does not contain a version.
+        // This might change with the stable release.
+        JetBrainsProduct.fleet => RegExp(productConfig.preferencePrefix),
+        // Android Studio can sometimes use versioning in the format YEAR.QUARTER.FIX.
+        // This format appears to have been introduced since version 2024.3.2.
+        JetBrainsProduct.androidStudio => RegExp(
+          "${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d(\\.\\d)\$)",
+        ),
+        _ => RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)"),
+      };
+
+      // final prefPattern = (product == JetBrainsProduct.fleet)
+      //     ? RegExp(productConfig.preferencePrefix)
+      //     : RegExp("${productConfig.preferencePrefix}((\\d|\\d{4})\\.\\d\$)");
       List<FileSystemEntity> availablePaths =
           appSupport
               .listSync(recursive: false, followLinks: true)
