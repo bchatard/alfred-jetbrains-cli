@@ -128,3 +128,4 @@
 ## 0.0.28 - UNRELEASED
 
 - Bump dependencies
+- feat: add Sonar

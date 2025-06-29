@@ -2,9 +2,10 @@ name: Validate
 
 on:
   pull_request:
-    branches: [main]
+    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - ".github/workflows/validate.yml"
       - "bin/alfred_jetbrains_cli.dart"
@@ -30,3 +31,7 @@ jobs:
         run: dart analyze
       - name: Run test
         run: dart test
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
