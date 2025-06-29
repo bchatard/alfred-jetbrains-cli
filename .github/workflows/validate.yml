@@ -32,6 +32,7 @@ jobs:
       - name: Run test
         run: dart test
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        # https://community.sonarsource.com/t/github-action-sonarqube-scan-action-fails-due-to-unbound-scanner-args-0/141257/14
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
