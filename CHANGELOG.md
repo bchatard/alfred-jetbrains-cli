@@ -125,8 +125,12 @@
 - fix: Android Studio can use full version for application settings path
 - Bump dependencies
 
-## 0.0.28 - UNRELEASED
+## 0.1.0
 
 - Bump dependencies
 - feat: add Sonar
 - fix: code optimisation from Sonar
+- feat(install): self-installable CLI
+  - create `info.plist`
+  - create `icon.png`
+  - move itself to workflow directory

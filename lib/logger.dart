@@ -22,6 +22,16 @@ final Logger logger = Logger(
   level: Level.info,
 );
 
+final consoleLogger = Logger(
+  filter: ProductionFilter(),
+  output: ConsoleOutput(),
+  printer: PrettyPrinter(
+    printEmojis: false,
+    methodCount: 0,
+    noBoxingByDefault: true,
+  ),
+);
+
 class _FileOutput extends LogOutput {
   late final IOSink _sink;
 
