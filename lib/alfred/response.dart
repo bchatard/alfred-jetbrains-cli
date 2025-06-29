@@ -25,12 +25,16 @@ class AlfredResponse {
       'items': items,
     };
 
-    final encoder = debugMode ? JsonEncoder.withIndent('  ') : JsonEncoder();
+    final encoder = debugMode
+        ? const JsonEncoder.withIndent('  ')
+        : const JsonEncoder();
     print(encoder.convert(response));
   }
 
   void renderItem(ResultItem item) {
-    final encoder = debugMode ? JsonEncoder.withIndent('  ') : JsonEncoder();
+    final encoder = debugMode
+        ? const JsonEncoder.withIndent('  ')
+        : const JsonEncoder();
     print(encoder.convert(item));
   }
 

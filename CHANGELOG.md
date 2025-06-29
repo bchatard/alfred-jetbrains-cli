@@ -129,3 +129,4 @@
 
 - Bump dependencies
 - feat: add Sonar
+- fix: code optimisation from Sonar

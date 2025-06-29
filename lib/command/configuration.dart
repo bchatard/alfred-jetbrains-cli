@@ -17,7 +17,7 @@ class ConfigurationCommand extends Command<int> {
   @override
   FutureOr<int>? run() async {
     print(
-      JsonEncoder.withIndent(
+      const JsonEncoder.withIndent(
         '  ',
       ).convert(JetBrainsProductConfiguration.config()),
     );
