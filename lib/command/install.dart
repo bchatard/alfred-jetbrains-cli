@@ -17,6 +17,14 @@ class InstallCommand extends Command<int> {
   @override
   String get name => 'install';
 
+  InstallCommand() {
+    argParser.addFlag(
+      'retain',
+      help: 'retain binary file, e.g. when installed via npm',
+      defaultsTo: false,
+    );
+  }
+
   @override
   FutureOr<int> run() {
     consoleLogger.i('Install Workflow');
@@ -63,7 +71,8 @@ class InstallCommand extends Command<int> {
   }
 
   String? _binPath() {
-    if (Platform.executable.endsWith('/bin/dart') ||
+    if (argResults!['retain'] ||
+        Platform.executable.endsWith('/bin/dart') ||
         Platform.executable.endsWith('\\bin\\dart.exe')) {
       return null;
     }

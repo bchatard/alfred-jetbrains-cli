@@ -134,3 +134,7 @@
   - create `info.plist`
   - create `icon.png`
   - move itself to workflow directory
+
+## 0.1.1
+
+- feat(install): add ability to retain binary file

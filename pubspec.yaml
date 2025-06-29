@@ -1,6 +1,6 @@
 name: alfred_jetbrains_cli
 description: Companion CLI for Alfred JetBrains workflow
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/bchatard/alfred-jetbrains-cli
 
 environment:
