@@ -30,7 +30,7 @@ Map<String, dynamic> _$ResultItemToJson(ResultItem instance) =>
       'autocomplete': instance.autocomplete,
       'text': instance.text.toJson(),
       'icon': instance.icon.toJson(),
-      if (instance.variables?.toJson() case final value?) 'variables': value,
+      'variables': ?instance.variables?.toJson(),
     };
 
 ResultItemText _$ResultItemTextFromJson(Map<String, dynamic> json) =>
@@ -46,10 +46,7 @@ ResultItemIcon _$ResultItemIconFromJson(Map<String, dynamic> json) =>
     ResultItemIcon(path: json['path'] as String, type: json['type'] as String?);
 
 Map<String, dynamic> _$ResultItemIconToJson(ResultItemIcon instance) =>
-    <String, dynamic>{
-      'path': instance.path,
-      if (instance.type case final value?) 'type': value,
-    };
+    <String, dynamic>{'path': instance.path, 'type': ?instance.type};
 
 ResultItemVariables _$ResultItemVariablesFromJson(Map<String, dynamic> json) =>
     ResultItemVariables(

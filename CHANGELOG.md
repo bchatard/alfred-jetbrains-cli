@@ -118,23 +118,30 @@
 
 - Bump to Dart 3.8.0
 - Bump dependencies
-- Re-format code with new formatter
+- Re-format code with the Dart new formatter
 
 ## 0.0.27
 
-- fix: Android Studio can use full version for application settings path
+- fix: Android Studio can use a full version for an application settings path
 - Bump dependencies
 
 ## 0.1.0
 
 - Bump dependencies
 - feat: add Sonar
-- fix: code optimisation from Sonar
+- fix: code optimization from Sonar
 - feat(install): self-installable CLI
   - create `info.plist`
   - create `icon.png`
-  - move itself to workflow directory
+  - move itself to the workflow directory
 
 ## 0.1.1
 
 - feat(install): add ability to retain binary file
+
+
+## 0.2.0
+
+- bump min Dart to 3.9
+- bump dependencies
+

@@ -24,3 +24,8 @@
 ## 1.3.1
 
 - bump dependencies
+
+## 1.4.0
+
+- bump min Dart to 3.9
+- bump dependencies
