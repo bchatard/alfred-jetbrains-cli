@@ -24,6 +24,7 @@ dev_dependencies:
   test: ^1.25.12
   build_pubspec:
     path: packages/build_pubspec
+    version: any
   husky: ^0.1.7
   commitlint_cli: ^0.8.1
   lint_staged: ^0.5.1
