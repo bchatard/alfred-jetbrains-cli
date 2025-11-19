@@ -1,6 +1,5 @@
+import 'package:alfred_jetbrains_cli/jetbrains/jetbrains.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'jetbrains.dart';
 
 part 'product_details.g.dart';
 

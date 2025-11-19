@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:alfred_jetbrains_cli/jetbrains/product_config.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
-
-import '../jetbrains/jetbrains.dart';
 
 class ConfigurationCommand extends Command<int> {
   @override

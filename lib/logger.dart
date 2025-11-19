@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:alfred_jetbrains_cli/helper.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart';
-
-import '../generated/pubspec.dart';
-import 'helper.dart';
 
 final loggerOutput = _FileOutput();
 

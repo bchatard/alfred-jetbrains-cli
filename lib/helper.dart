@@ -1,5 +1,8 @@
 import 'dart:io';
 
+const String packageName = 'alfred_jetbrains_cli';
+const String packageDescription = 'Companion CLI for Alfred JetBrains workflow';
+
 const String workflowName = '@bchatard-alfred-jetbrains-next';
 
 final bool debugMode = _debugMode();

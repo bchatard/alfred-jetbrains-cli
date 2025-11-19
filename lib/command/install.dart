@@ -3,12 +3,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:alfred_jetbrains_cli/assets/assets.dart';
+import 'package:alfred_jetbrains_cli/helper.dart';
 import 'package:alfred_jetbrains_cli/logger.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
 import 'package:path/path.dart';
-
-import '../helper.dart';
 
 class InstallCommand extends Command<int> {
   @override

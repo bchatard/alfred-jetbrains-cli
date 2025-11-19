@@ -1,13 +1,12 @@
 import 'dart:async';
 
+import 'package:alfred_jetbrains_cli/alfred/alfred.dart';
+import 'package:alfred_jetbrains_cli/exception/not_found.dart';
+import 'package:alfred_jetbrains_cli/helper.dart';
+import 'package:alfred_jetbrains_cli/jetbrains/jetbrains.dart';
+import 'package:alfred_jetbrains_cli/logger.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
-
-import '../alfred/alfred.dart';
-import '../exception/not_found.dart';
-import '../helper.dart';
-import '../jetbrains/jetbrains.dart';
-import '../logger.dart';
 
 class OpenProjectCommand extends Command<int> {
   @override

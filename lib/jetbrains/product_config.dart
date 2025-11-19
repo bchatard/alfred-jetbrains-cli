@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:alfred_jetbrains_cli/exception/not_found.dart';
+import 'package:alfred_jetbrains_cli/jetbrains/jetbrains.dart';
+import 'package:alfred_jetbrains_cli/logger.dart';
 import 'package:args/command_runner.dart';
-
-import '../exception/not_found.dart';
-import '../logger.dart';
-import 'jetbrains.dart';
 
 class JetBrainsProductConfiguration {
   static JetBrainsProductsDetails? _config;

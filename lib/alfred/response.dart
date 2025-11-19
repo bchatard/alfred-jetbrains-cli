@@ -1,11 +1,10 @@
 import 'dart:convert';
 
+import 'package:alfred_jetbrains_cli/alfred/result_item.dart';
+import 'package:alfred_jetbrains_cli/helper.dart';
+import 'package:alfred_jetbrains_cli/logger.dart';
+import 'package:alfred_jetbrains_cli/version.dart';
 import 'package:path/path.dart';
-
-import '../generated/pubspec.dart';
-import '../helper.dart';
-import '../logger.dart';
-import 'alfred.dart';
 
 class AlfredResponse {
   late DateTime _start;

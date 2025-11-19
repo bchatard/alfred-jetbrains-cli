@@ -145,3 +145,9 @@
 - bump min Dart to 3.9
 - bump dependencies
 
+## 0.3.0
+
+- bump min Dart to 3.10
+- bump dependencies
+- use import with package prefix
+

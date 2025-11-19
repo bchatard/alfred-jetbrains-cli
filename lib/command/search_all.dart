@@ -1,11 +1,10 @@
 import 'dart:async';
 
+import 'package:alfred_jetbrains_cli/alfred/alfred.dart';
+import 'package:alfred_jetbrains_cli/jetbrains/jetbrains.dart';
+import 'package:alfred_jetbrains_cli/logger.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
-
-import '../alfred/alfred.dart';
-import '../jetbrains/jetbrains.dart';
-import '../logger.dart';
 
 class SearchAllCommand extends Command<int> {
   @override

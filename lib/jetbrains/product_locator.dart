@@ -1,12 +1,11 @@
 import 'dart:io';
 
+import 'package:alfred_jetbrains_cli/exception/not_found.dart';
+import 'package:alfred_jetbrains_cli/helper.dart';
+import 'package:alfred_jetbrains_cli/jetbrains/jetbrains.dart';
+import 'package:alfred_jetbrains_cli/logger.dart';
 import 'package:collection/collection.dart';
 import 'package:path/path.dart';
-
-import '../exception/not_found.dart';
-import '../helper.dart';
-import '../logger.dart';
-import 'jetbrains.dart';
 
 class JetBrainsProductLocator {
   FileSystemEntity? _bin;
