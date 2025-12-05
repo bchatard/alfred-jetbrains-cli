@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:alfred_jetbrains_cli/assets/assets.dart';
 import 'package:alfred_jetbrains_cli/helper.dart';
 import 'package:alfred_jetbrains_cli/logger.dart';
+import 'package:alfred_jetbrains_cli/version.dart';
 import 'package:args/command_runner.dart';
 import 'package:io/io.dart';
 import 'package:path/path.dart';
@@ -39,11 +40,15 @@ class InstallCommand extends Command<int> {
 
     // Write files to workflow folder
     final infoPlistFile = File(join(workflow.absolute.path, 'info.plist'))
-      ..writeAsStringSync(infoPlist, mode: FileMode.writeOnly);
+      ..writeAsStringSync(
+        infoPlist.replaceAll('{{WORKFLOW_VERSION}}', packageVersion),
+        mode: FileMode.writeOnly,
+      );
     File(
       join(workflow.absolute.path, 'icon.png'),
     ).writeAsBytesSync(iconPng, mode: FileMode.writeOnly);
     consoleLogger.i('Workflow installed: ${infoPlistFile.absolute.path}');
+
     final String? binPath = _binPath();
     if (binPath != null) {
       consoleLogger.i('Move $binPath to workflow destination');

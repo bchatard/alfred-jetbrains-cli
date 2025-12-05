@@ -3217,7 +3217,7 @@ chmod +x alfred_jetbrains_cli
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2.5.0</string>
+	<string>{{WORKFLOW_VERSION}}</string>
 	<key>webaddress</key>
 	<string>https://github.com/bchatard/alfred-jetbrains/</string>
 </dict>
