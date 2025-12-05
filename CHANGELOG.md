@@ -151,3 +151,6 @@
 - bump dependencies
 - use import with package prefix
 
+## 0.4.0
+
+- feat: customize keywords

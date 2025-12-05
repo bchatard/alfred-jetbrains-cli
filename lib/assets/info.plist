@@ -841,7 +841,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>appcode</string>
+				<string>{var:keyword_appcode}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -930,7 +930,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>aqua</string>
+				<string>{var:keyword_aqua}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1019,7 +1019,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>clion</string>
+				<string>{var:keyword_clion}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1147,7 +1147,7 @@ fi</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>datagrip</string>
+				<string>{var:keyword_datagrip}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1324,7 +1324,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>goland</string>
+				<string>{var:keyword_goland}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1413,7 +1413,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>idea</string>
+				<string>{var:keyword_idea}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1502,7 +1502,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>pstorm</string>
+				<string>{var:keyword_phpstorm}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1591,7 +1591,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>pycharm</string>
+				<string>{var:keyword_pycharm}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1680,7 +1680,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>wstorm</string>
+				<string>{var:keyword_webstorm}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1769,7 +1769,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>studio</string>
+				<string>{var:keyword_android_studio}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1858,7 +1858,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>rider</string>
+				<string>{var:keyword_rider}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1947,7 +1947,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>rubymine</string>
+				<string>{var:keyword_rubymine}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -2036,7 +2036,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>rustrover</string>
+				<string>{var:keyword_rustrover}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -2085,7 +2085,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>fleet</string>
+				<string>{var:keyword_fleet}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -2134,7 +2134,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>dataspell</string>
+				<string>{var:keyword_dataspell}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -2183,7 +2183,7 @@ echo "${PROJECT_NAME}"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>writerside</string>
+				<string>{var:keyword_writerside}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -2227,22 +2227,32 @@ echo "${PROJECT_NAME}"</string>
 
 ## Requirements
 
-You need [Node.js LTS](https://nodejs.org) and [Alfred 5.6+](https://www.alfredapp.com) with the paid [Powerpack](https://www.alfredapp.com/powerpack/) upgrade.
+You need [Node.js LTS](https://nodejs.org) and [Alfred 5.7+](https://www.alfredapp.com) with the paid [Powerpack](https://www.alfredapp.com/powerpack/) upgrade.
 
-This workflow need one of JetBrains products (**2019.1+**), and its shell script to works
+This workflow needs one of JetBrains products (**2019.1+**), and its shell script to work
 
 
 ## About issues
 
-It's my daily tool, so I will fix issue that I can reproduce with **my environment**, which is
-* macOS 15.5
-* Alfred 5.6 (latest available)
+It's my daily tool, so I will fix issues that I can reproduce with **my environment**, which is
+* macOS 26.1
+* Alfred 5.7 (latest available)
 * at least Node 22, but not really important, node is only required to install this workflow
 
 
 ## Installation / Update
 
 `$ npm install -g @bchatard/alfred-jetbrains`
+
+
+Or download binary from [alfred-jetbrains-cli releases page](https://github.com/bchatard/alfred-jetbrains-cli/releases/latest)
+```shell
+# Since the bin is not (yet) signed
+xattr -d com.apple.quarantine bin/alfred_jetbrains_cli
+chmod +x alfred_jetbrains_cli
+./alfred_jetbrains_cli install
+```
+(new process to remove Node dependency, it might not work for all cases)
 
 
 ## Changelog
@@ -2860,9 +2870,345 @@ It's my daily tool, so I will fix issue that I can reproduce with **my environme
 			<key>variable</key>
 			<string>jb_clion_edition</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>appcode</string>
+				<key>placeholder</key>
+				<string>appcode</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to trigger AppCode</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_appcode</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>aqua</string>
+				<key>placeholder</key>
+				<string>aqua</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger Aqua</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_aqua</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>clion</string>
+				<key>placeholder</key>
+				<string>clion</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger CLion</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_clion</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>datagrip</string>
+				<key>placeholder</key>
+				<string>datagrip</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger DataGrip</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_datagrip</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>goland</string>
+				<key>placeholder</key>
+				<string>goland</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger GoLand</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_goland</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>idea</string>
+				<key>placeholder</key>
+				<string>idea</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger IntelliJ</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_idea</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>pstorm</string>
+				<key>placeholder</key>
+				<string>pstorm</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger PhpStorm</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_phpstorm</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>pycharm</string>
+				<key>placeholder</key>
+				<string>pycharm</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger PyCharm</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_pycharm</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>wstorm</string>
+				<key>placeholder</key>
+				<string>wstorm</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger WebStorm</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_webstorm</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>studio</string>
+				<key>placeholder</key>
+				<string>studio</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger Android Studio</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_android_studio</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>rider</string>
+				<key>placeholder</key>
+				<string>rider</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger Rider</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_rider</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>rubymine</string>
+				<key>placeholder</key>
+				<string>rubymine</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger RubyMine</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_rubymine</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>rustrover</string>
+				<key>placeholder</key>
+				<string>rustrover</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger RustRover</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_rustrover</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>fleet</string>
+				<key>placeholder</key>
+				<string>fleet</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger Fleet</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_fleet</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>dataspell</string>
+				<key>placeholder</key>
+				<string>dataspell</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger DataSpell</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_dataspell</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>writerside</string>
+				<key>placeholder</key>
+				<string>writerside</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Leave empty to disable this product</string>
+			<key>label</key>
+			<string>Keyword to triger WriterSide</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_writerside</string>
+		</dict>
 	</array>
 	<key>version</key>
-	<string>2.1.1</string>
+	<string>2.5.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/bchatard/alfred-jetbrains/</string>
 </dict>
