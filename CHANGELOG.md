@@ -158,3 +158,7 @@
 ## 2.5.0
 
 - chore: align the version with the workflow 
+
+## 2.5.1
+
+- chore: bump dependencies 
