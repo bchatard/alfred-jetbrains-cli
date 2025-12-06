@@ -6,6 +6,13 @@
 - align the version with the workflow - ([9e2d52f](https://github.com/bchatard/alfred-jetbrains-cli/commit/9e2d52f73d9dea84c4a71efc48f2fa6d6a0f125c)) - [@bchatard](https://github.com/bchatard)
 
 - - -
+## [2.5.1](https://github.com/bchatard/alfred-jetbrains-cli/compare/fd5c7a87a07b768d21551879baa14480e0a9d9bf..2.5.1) - 2025-12-06
+#### Miscellaneous Chores
+- replace husky/commitlint with cocogitto - ([03e4668](https://github.com/bchatard/alfred-jetbrains-cli/commit/03e46688cfad120ac084f23eb26b5eb12d9fe19c)) - [@bchatard](https://github.com/bchatard)
+- bump dependencies - ([fd5c7a8](https://github.com/bchatard/alfred-jetbrains-cli/commit/fd5c7a87a07b768d21551879baa14480e0a9d9bf)) - [@bchatard](https://github.com/bchatard)
+
+- - -
+
 
 ## [0.3.0](https://github.com/bchatard/alfred-jetbrains-cli/compare/0.2.0..0.3.0) - 2025-12-06
 #### Miscellaneous Chores
