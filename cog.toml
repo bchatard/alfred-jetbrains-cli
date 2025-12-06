@@ -1,0 +1,48 @@
+tag_prefix = ""
+from_latest_tag = false
+ignore_merge_commits = false
+ignore_fixup_commits = true
+disable_changelog = false
+disable_bump_commit = false
+generate_mono_repository_global_tag = true
+generate_mono_repository_package_tags = true
+branch_whitelist = []
+skip_ci = "[skip ci]"
+skip_untracked = false
+pre_bump_hooks = [
+    'sed -i "" -E "s|^version: (.*)|version: {{version}}|" pubspec.yaml',
+    'dart run build_runner build --delete-conflicting-outputs'
+]
+post_bump_hooks = []
+pre_package_bump_hooks = []
+post_package_bump_hooks = []
+
+[git_hooks]
+[git_hooks.commit-msg]
+script = """#!/bin/sh
+set -e
+cog verify --file $1
+"""
+
+[git_hooks.pre-commit]
+script = """#!/bin/sh
+set -e
+dart run lint_staged
+"""
+
+[commit_types]
+
+[changelog]
+path = "CHANGELOG.md"
+template = "remote"
+remote = "github.com"
+owner = "bchatard"
+repository = "alfred-jetbrains-cli"
+
+authors = [
+    { username = "bchatard", signature = "bchatard" },
+]
+
+[bump_profiles]
+
+[packages]
