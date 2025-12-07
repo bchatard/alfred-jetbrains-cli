@@ -8,3 +8,6 @@
 # Complied binairies
 bin/*
 !bin/alfred_jetbrains_cli.dart
+
+# Tests
+coverage
