@@ -12,6 +12,7 @@ on:
       - "lib/**"
       - "test/**"
       - "pubspec.yaml"
+      - "sonar-project.properties"
       - "packages/build_pubspec/lib/**"
       - "packages/build_pubspec/pubspec.yaml"
 
