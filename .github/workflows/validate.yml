@@ -25,12 +25,16 @@ jobs:
         uses: dart-lang/setup-dart@v1
       - name: Install Dependencies
         run: dart pub get
+      - name: Install Coverage
+        run: dart pub global activate coverage
       - name: Check code format
         run: dart format --output=none --set-exit-if-changed .
       - name: Analyze code
         run: dart analyze
       - name: Run test
-        run: dart test
+        run: dart test --coverage=coverage
+      - name: Format coverage
+        run: dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=lib
       - name: SonarQube Scan
         # https://community.sonarsource.com/t/github-action-sonarqube-scan-action-fails-due-to-unbound-scanner-args-0/141257/14
         uses: SonarSource/sonarqube-scan-action@master
