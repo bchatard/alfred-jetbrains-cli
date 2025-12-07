@@ -2,20 +2,9 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
-## [2.6.1](https://github.com/bchatard/alfred-jetbrains-cli/compare/fd5c7a87a07b768d21551879baa14480e0a9d9bf..2.6.1) - 2025-12-07
+## [2.6.1](https://github.com/bchatard/alfred-jetbrains-cli/compare/2.6.0..2.6.1) - 2025-12-07
 #### Features
 - display version with print - ([b50ab60](https://github.com/bchatard/alfred-jetbrains-cli/commit/b50ab601b66776260e6831332ff6ee798f91e317)) - [@bchatard](https://github.com/bchatard)
-#### Tests
-- (**ci/cd**) remove unnecessary dependencies for coverage - ([465fd08](https://github.com/bchatard/alfred-jetbrains-cli/commit/465fd082a44ef355699f87c19e766e2b76a76d80)) - [@bchatard](https://github.com/bchatard)
-- (**ci/cd**) optimize sonar analysis - ([7443309](https://github.com/bchatard/alfred-jetbrains-cli/commit/74433090160fdfbe14abd3d215adc508715bfa03)) - [@bchatard](https://github.com/bchatard)
-- (**ci/cd**) optimize sonar analysis - ([56bd586](https://github.com/bchatard/alfred-jetbrains-cli/commit/56bd586169ac44a98995ef97d597a3ccbce13b66)) - [@bchatard](https://github.com/bchatard)
-- (**ci/cd**) run test coverage - ([9c3c038](https://github.com/bchatard/alfred-jetbrains-cli/commit/9c3c0386cb233f8bee7d73d497c904984bfcf58f)) - [@bchatard](https://github.com/bchatard)
-- add tests, generated via Junie - ([e731f23](https://github.com/bchatard/alfred-jetbrains-cli/commit/e731f23d3651eb3e3b9e791ba8cbfb9e02e88999)) - [@bchatard](https://github.com/bchatard)
-#### Miscellaneous Chores
-- (**version**) 2.6.0 - ([bb1d297](https://github.com/bchatard/alfred-jetbrains-cli/commit/bb1d2977e34f8a233c4198eed687ccb20109ce9f)) - [@bchatard](https://github.com/bchatard)
-- (**version**) 2.5.1 - ([ecb88a6](https://github.com/bchatard/alfred-jetbrains-cli/commit/ecb88a61b7ad3557fc8a6ccf7e287db5b2dcd06f)) - [@bchatard](https://github.com/bchatard)
-- replace husky/commitlint with cocogitto - ([03e4668](https://github.com/bchatard/alfred-jetbrains-cli/commit/03e46688cfad120ac084f23eb26b5eb12d9fe19c)) - [@bchatard](https://github.com/bchatard)
-- bump dependencies - ([fd5c7a8](https://github.com/bchatard/alfred-jetbrains-cli/commit/fd5c7a87a07b768d21551879baa14480e0a9d9bf)) - [@bchatard](https://github.com/bchatard)
 
 - - -
 
