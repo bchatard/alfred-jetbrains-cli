@@ -90,7 +90,7 @@ class AlfredJetBrainsCli extends CommandRunner<int> {
     // Run the command or show version
     final int? exitCode;
     if (topLevelResults['version'] == true) {
-      logger.i(packageVersion);
+      print(packageVersion);
       exitCode = ExitCode.success.code;
     } else {
       exitCode = await super.runCommand(topLevelResults);
