@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [2.6.2](https://github.com/bchatard/alfred-jetbrains-cli/compare/35ddaa7016dedc05f62426a7faadcbb13091567d..2.6.2) - 2025-12-16
+#### Bug Fixes
+- (**ci/cd**) switch to mac intel for compilation - ([88c465f](https://github.com/bchatard/alfred-jetbrains-cli/commit/88c465f3ac173c4148caf0b2464671c0cdafca61)) - [@bchatard](https://github.com/bchatard)
+#### Documentation
+- update CHANGELOG.md - ([35ddaa7](https://github.com/bchatard/alfred-jetbrains-cli/commit/35ddaa7016dedc05f62426a7faadcbb13091567d)) - [@bchatard](https://github.com/bchatard)
+
+- - -
+
 ## [2.6.1](https://github.com/bchatard/alfred-jetbrains-cli/compare/2.6.0..2.6.1) - 2025-12-07
 #### Features
 - display version with print - ([b50ab60](https://github.com/bchatard/alfred-jetbrains-cli/commit/b50ab601b66776260e6831332ff6ee798f91e317)) - [@bchatard](https://github.com/bchatard)
